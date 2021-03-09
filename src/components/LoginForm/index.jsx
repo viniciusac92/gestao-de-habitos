@@ -4,6 +4,8 @@ import * as yup from 'yup'
 import { Button, TextField, makeStyles } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import api from '../../Services/index'
+import { useState } from 'react'
+import { SettingsInputAntennaTwoTone } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const LoginForm = () => {
+    const [error, setError] = useState(false);
     const classes = useStyles();
     const history = useHistory()
 
@@ -30,7 +33,7 @@ const LoginForm = () => {
     })
 
     const handleForm = data => {
-        console.log(data)
+        setError(false)
         api
         .post('/sessions/', data)
         .then(
@@ -42,7 +45,7 @@ const LoginForm = () => {
             }
         )
         .catch(
-            e => console.log(e)
+            e => setError(true)
         )
     }
 
@@ -80,6 +83,7 @@ const LoginForm = () => {
             <div className={classes.root}>
                 <Button onClick={() => history.push('/register')} color='primary' >Cadastre-se</Button>
             </div>
+            {error && <span> Usuário ou senha incorretas! </span>}
         </form>
     )
 
