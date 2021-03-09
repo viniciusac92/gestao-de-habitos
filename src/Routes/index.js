@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import LoginPage from '../Pages/LoginPage'
 import Home from "../components/Home";
 import Usuarios from "../components/Usuarios";
 import RegisterPage from "../pages/RegisterPage";
@@ -9,10 +10,10 @@ const Routes = () => {
     <AnimatePresence exitBeforeEnter>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <LoginPage />
         </Route>
-        <Route path="/user">
-          <Usuarios />
+        <Route path="/home">
+          
         </Route>
         <Route path="/register">
           <RegisterPage />
