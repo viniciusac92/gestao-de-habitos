@@ -1,17 +1,16 @@
 import { Switch, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Home from "../components/Home";
-import Usuarios from "../components/Usuarios";
+import LoginPage from '../Pages/LoginPage'
 
 const Routes = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <LoginPage />
         </Route>
-        <Route path="/user">
-          <Usuarios />
+        <Route path="/home">
+          
         </Route>
       </Switch>
     </AnimatePresence>
