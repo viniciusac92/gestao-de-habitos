@@ -4,9 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import * as yup from "yup";
 import api from "../../Services";
-
 import { Button, TextField } from "@material-ui/core";
-import { CardRegister } from "./styles";
+import { CardRegister, TagP } from "./styles";
 
 const Register = () => {
   const history = useHistory();
@@ -92,7 +91,7 @@ const Register = () => {
             Enviar
           </Button>
         </div>
-        {errMsg && <p>usuário já cadastrado</p>}
+        {errMsg && <TagP>Usuário já cadastrado</TagP>}
       </CardRegister>
     </div>
   );
