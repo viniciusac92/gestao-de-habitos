@@ -24,5 +24,3 @@ export const D2DLogoStyle = {
   fontSize: "26px",
   fontWeight: "750",
 };
-
-export const loginStyle = {};
