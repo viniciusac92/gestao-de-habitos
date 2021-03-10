@@ -19,6 +19,7 @@ const LoginForm = () => {
 
   const schema = yup.object().shape({
     username: yup.string().required("campo obrigatório!"),
+
     password: yup
       .string()
       .min(6, "mínimo de 6 caracteres")
@@ -31,6 +32,7 @@ const LoginForm = () => {
 
   const handleForm = (data) => {
     console.log(data);
+
     api
       .post("/sessions/", data)
       .then((response) => {
