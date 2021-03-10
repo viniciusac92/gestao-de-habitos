@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card50px, CardUser, DivHome } from "./styles";
+import { CardUser, DivHome } from "./styles";
 import api from "../../Services";
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     api.get("users/2/").then((response) => setItem(response));
   }, []);
 
-  return <div style={Card50px}></div>;
+  return <div></div>;
 };
 
 export default Home;
