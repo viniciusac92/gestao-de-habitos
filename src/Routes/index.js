@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import LoginPage from "../Pages/LoginPage";
+import LoginPage from "../pages/LoginPage";
 import Home from "../components/Home";
 import Usuarios from "../components/Usuarios";
 import RegisterPage from "../pages/RegisterPage";
