@@ -6,18 +6,10 @@ import { useHistory } from 'react-router-dom'
 import api from '../../Services/index'
 import { useState } from 'react'
 import { SettingsInputAntennaTwoTone } from '@material-ui/icons'
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-  }));
+import { SpanError } from './styled'
 
 const LoginForm = () => {
     const [error, setError] = useState(false);
-    const classes = useStyles();
     const history = useHistory()
 
     const schema = yup.object().shape({
@@ -38,8 +30,8 @@ const LoginForm = () => {
         .post('/sessions/', data)
         .then(
             response => {
-                sessionStorage.clear()
-                sessionStorage.setItem('token', JSON.stringify(response.data.token))
+                localStorage.clear()
+                localStorage.setItem('token', JSON.stringify(response.data.token))
                 reset()
                 history.push('/home')
             }
@@ -70,6 +62,7 @@ const LoginForm = () => {
                     variant = 'outlined'
                     label = 'Senha'
                     name = 'password'
+                    type = 'password'
                     size = 'small'
                     color = 'primary'
                     inputRef = {register}
@@ -77,13 +70,13 @@ const LoginForm = () => {
                     helperText = {errors.password?.message}
                 />
             </div>
-            <div className={classes.root}>
+            <div>
                 <Button type='submit' variant='contained' color='primary' >Entrar</Button>
             </div>
-            <div className={classes.root}>
+            <div>
                 <Button onClick={() => history.push('/register')} color='primary' >Cadastre-se</Button>
             </div>
-            {error && <span> Usuário ou senha incorretas! </span>}
+            {error && <SpanError> Usuário ou senha incorretas! </SpanError>}
         </form>
     )
 
