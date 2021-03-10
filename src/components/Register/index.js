@@ -5,7 +5,15 @@ import { useState } from "react";
 import * as yup from "yup";
 import api from "../../Services";
 import { Button, TextField } from "@material-ui/core";
-import { CardRegister, TagP } from "./styles";
+import {
+  CardRegister,
+  TagP,
+  titleStyle,
+  textAreaStyle,
+  buttonStyle,
+} from "./styles";
+import { Card } from "@material-ui/core";
+import D2DLogo from "../../styles/D2DLogo";
 
 const Register = () => {
   const history = useHistory();
@@ -43,57 +51,56 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <CardRegister>
-        <h3>Register</h3>
-        <TextField
-          margin="normal"
-          variant="filled"
-          label="Username"
-          name="username"
-          size="small"
-          color="primary"
-          inputRef={register}
-          error={!!errors.username}
-          helperText={errors.username?.message}
-        />
-        <TextField
-          type="password"
-          margin="normal"
-          variant="filled"
-          label="Senha"
-          name="password"
-          size="small"
-          color="primary"
-          inputRef={register}
-          error={!!errors.password}
-          helperText={errors.password?.message}
-        />
-        <TextField
-          margin="normal"
-          variant="filled"
-          label="Email"
-          name="email"
-          size="small"
-          color="primary"
-          inputRef={register}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-        />
+    <Card raised={true} style={CardRegister}>
+      <D2DLogo />
+      <h3 style={titleStyle}>Register</h3>
+      <TextField
+        margin="normal"
+        variant="filled"
+        label="Username"
+        name="username"
+        size="small"
+        style={textAreaStyle}
+        inputRef={register}
+        error={!!errors.username}
+        helperText={errors.username?.message}
+      />
+      <TextField
+        type="password"
+        margin="normal"
+        variant="filled"
+        label="Senha"
+        name="password"
+        size="small"
+        style={textAreaStyle}
+        inputRef={register}
+        error={!!errors.password}
+        helperText={errors.password?.message}
+      />
+      <TextField
+        margin="normal"
+        variant="filled"
+        label="Email"
+        name="email"
+        size="small"
+        style={textAreaStyle}
+        inputRef={register}
+        error={!!errors.email}
+        helperText={errors.email?.message}
+      />
 
-        <div>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            onClick={handleSubmit(handleForm)}
-          >
-            Enviar
-          </Button>
-        </div>
-        {errMsg && <TagP>Usuário já cadastrado</TagP>}
-      </CardRegister>
-    </div>
+      <div>
+        <Button
+          type="submit"
+          variant="contained"
+          style={buttonStyle}
+          onClick={handleSubmit(handleForm)}
+        >
+          Enviar
+        </Button>
+      </div>
+      {errMsg && <TagP>Usuário já cadastrado</TagP>}
+    </Card>
   );
 };
 export default Register;
