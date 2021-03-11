@@ -1,11 +1,14 @@
 import LoginForm from "../../components/LoginForm";
-import { LoginBox } from "./style";
+import { loginCardStyle } from "./style";
+import { Card } from "@material-ui/core";
+import D2DLogo from "../../styles/D2DLogo";
 
 const LoginPage = () => {
   return (
-    <LoginBox>
+    <Card style={loginCardStyle} raised={true}>
+      <D2DLogo />
       <LoginForm />
-    </LoginBox>
+    </Card>
   );
 };
 
