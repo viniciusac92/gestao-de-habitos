@@ -1,4 +1,3 @@
-import { HabitsProvider } from "./Habits";
 import { UserProvider } from "./User";
 
 const Providers = ({ children }) => {
