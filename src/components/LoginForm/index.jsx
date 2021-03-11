@@ -7,6 +7,7 @@ import api from "../../Services/index";
 import { useState } from "react";
 // import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
 import { SpanError } from "./styled";
+import jwt_decode from "jwt-decode";
 
 const LoginForm = () => {
   const [error, setError] = useState(false);
@@ -14,7 +15,6 @@ const LoginForm = () => {
 
   const schema = yup.object().shape({
     username: yup.string().required("campo obrigatório!"),
-
     password: yup
       .string()
       .min(6, "mínimo de 6 caracteres")
@@ -31,7 +31,10 @@ const LoginForm = () => {
       .post("/sessions/", data)
       .then((response) => {
         localStorage.clear();
-        localStorage.setItem("token", JSON.stringify(response.data.token));
+        const token = JSON.stringify(response.data.access);
+        const id = jwt_decode(token).user_id;
+        localStorage.setItem("token", token);
+        localStorage.setItem("id", JSON.stringify(id));
         reset();
         history.push("/home");
       })
