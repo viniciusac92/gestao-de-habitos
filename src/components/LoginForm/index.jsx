@@ -6,11 +6,8 @@ import { useHistory } from "react-router-dom";
 import api from "../../Services/index";
 import { useState } from "react";
 // import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
-<<<<<<< src/components/LoginForm/index.jsx
 import jwt_decode from "jwt-decode";
-=======
 import { SpanError, textAreaStyle, buttonStyle } from "./styled";
->>>>>>> src/components/LoginForm/index.jsx
 
 const LoginForm = () => {
   const [error, setError] = useState(false);
