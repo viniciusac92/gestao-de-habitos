@@ -6,8 +6,11 @@ import { useHistory } from "react-router-dom";
 import api from "../../Services/index";
 import { useState } from "react";
 // import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
-import { SpanError } from "./styled";
+<<<<<<< src/components/LoginForm/index.jsx
 import jwt_decode from "jwt-decode";
+=======
+import { SpanError, textAreaStyle, buttonStyle } from "./styled";
+>>>>>>> src/components/LoginForm/index.jsx
 
 const LoginForm = () => {
   const [error, setError] = useState(false);
@@ -45,6 +48,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit(handleForm)}>
       <div>
         <TextField
+          style={textAreaStyle}
           margin="normal"
           variant="outlined"
           label="Usuário"
@@ -58,6 +62,7 @@ const LoginForm = () => {
       </div>
       <div>
         <TextField
+          style={textAreaStyle}
           margin="normal"
           variant="outlined"
           label="Senha"
@@ -70,8 +75,8 @@ const LoginForm = () => {
           helperText={errors.password?.message}
         />
       </div>
-      <div>
-        <Button type="submit" variant="contained" color="primary">
+      <div style={{ paddingTop: "15px" }}>
+        <Button type="submit" variant="contained" style={buttonStyle}>
           Entrar
         </Button>
       </div>
