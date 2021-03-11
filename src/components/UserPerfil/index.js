@@ -1,10 +1,29 @@
 import { Avatar, CardContent, Typography } from "@material-ui/core";
-import ControlledAccordions from "./styles/acordeon";
-import { CardMediaUser, CardUser, DivItems, DivPerfil } from "./styles/styles";
+// import ControlledAccordions from "./styles/acordeon";
+import {
+  CardItem,
+  CardMediaUser,
+  CardUser,
+  DivItems,
+  DivPerfil,
+} from "./styles/styles";
 import { useProviderUser } from "../../Providers/User";
+import FullScreenDialog from "./styles/dialog";
+import { useEffect } from "react";
+import api from "../../Services";
 
 const UserPerfil = () => {
-  const { userName } = useProviderUser();
+  const { userName, setHabits, habits } = useProviderUser();
+
+  useEffect(() => {
+    api
+      .get(`/habits/personal/`)
+      .then((res) => setHabits(res.data))
+      .then(() => localStorage.setItem("habits", JSON.stringify(habits)))
+      .catch((e) => console.log(e));
+  }, [userName]);
+
+  console.log(habits);
 
   return (
     <DivPerfil>
@@ -21,10 +40,14 @@ const UserPerfil = () => {
         <CardContent>
           <Typography>{userName}</Typography>
         </CardContent>
-        {/* <p>{userName}</p> */}
       </CardUser>
       <DivItems>
-        <ControlledAccordions />
+        <CardItem onClick={() => console.log("foi")} />
+        <CardItem>
+          Hábitos <FullScreenDialog />
+        </CardItem>
+        <CardItem />
+        <CardItem />
       </DivItems>
     </DivPerfil>
   );

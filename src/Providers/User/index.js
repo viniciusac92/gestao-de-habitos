@@ -7,6 +7,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [error, setError] = useState(false);
+  const [habits, setHabits] = useState("");
 
   useEffect(() => {
     api
@@ -25,7 +26,9 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ userName, handleChangeUserName, error }}>
+    <UserContext.Provider
+      value={{ userName, handleChangeUserName, error, setHabits, habits }}
+    >
       {children}
     </UserContext.Provider>
   );

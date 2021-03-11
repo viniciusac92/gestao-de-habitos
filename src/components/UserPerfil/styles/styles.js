@@ -33,7 +33,7 @@ export const DivPerfil = styled.div`
 `;
 
 export const DivItems = styled.div`
-  width: 51%;
+  width: 60%;
   height: 45%;
   display: flex;
   flex-direction: column;
@@ -41,5 +41,14 @@ export const DivItems = styled.div`
   @media (max-width: 600px) {
     align-items: center;
     width: 90%;
+  }
+`;
+
+export const CardItem = styled(Card)`
+  width: 60%;
+  height: 15%;
+  margin: 2%;
+  &:hover {
+    background-color: blue;
   }
 `;
