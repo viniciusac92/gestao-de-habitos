@@ -1,4 +1,4 @@
-import HighlightCardDemo from "../../components/card";
+import HighlightCardDemo from "../../components/Home/card";
 import {motion} from "framer-motion";
 
 const HomePage = () => {
