@@ -12,6 +12,7 @@ import { Row, Item } from "@mui-treasury/components/flex";
 import ActionsInAccordionSummary from "./acordeon";
 import { CardActions, Collapse, IconButton } from "@material-ui/core";
 import clsx from "clsx";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -109,11 +110,17 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     },
   },
   expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
     [breakpoints.down("sm")]: {
       width: "50px",
       fontSize: "0.8rem",
       margin: 0,
     },
+  },
+
+  expandOpen: {
+    transform: "rotate(180deg)",
   },
 
   form: {
@@ -176,7 +183,7 @@ const CustomCard = ({
                 })}
                 onClick={handleExpandClick}
               >
-                expand
+                <ExpandMoreIcon />
               </IconButton>
             </CardActions>
           </Box>

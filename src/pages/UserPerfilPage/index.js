@@ -1,7 +1,7 @@
-import Home from "../../components/Home";
+import UserPerfil from "../../components/UserPerfil";
 import { motion } from "framer-motion";
 
-const HomePage = () => {
+const UserPerfilPage = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -9,9 +9,9 @@ const HomePage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <Home />
+      <UserPerfil />
     </motion.div>
   );
 };
 
-export default HomePage;
+export default UserPerfilPage;
