@@ -18,5 +18,5 @@ export const useStyles = makeStyles((theme) => ({
 export const ToolbarStyled = styled(Toolbar)`
 	display: flex !important;
 	flex-direction: row !important;
-	justify-content: right !important;
+	justify-content: flex-end !important;
 `;
