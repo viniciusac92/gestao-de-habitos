@@ -14,6 +14,7 @@ import {
 } from "./styles";
 import { Card } from "@material-ui/core";
 import D2DLogo from "../../styles/D2DLogo";
+import axios from "axios";
 
 const Register = () => {
   const history = useHistory();
@@ -37,8 +38,8 @@ const Register = () => {
   };
 
   const handleForm = (data) => {
-    api
-      .post("/users/", data)
+    axios
+      .post("https://kabit-api.herokuapp.com/users/", data)
       .then(() => {
         reset();
         history.push("/");
