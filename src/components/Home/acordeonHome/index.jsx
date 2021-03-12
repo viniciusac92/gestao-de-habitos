@@ -6,6 +6,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import {IconButton} from "@material-ui/core";
 
 export default function ActionsInAccordionSummary({code}) {
 	return (
@@ -22,9 +24,17 @@ export default function ActionsInAccordionSummary({code}) {
 						control={
 							<>
 								{code !== null ? (
-									<button>Codar</button>
+									<>
+										<IconButton>
+											<AddCircleOutlineIcon />
+										</IconButton>
+									</>
 								) : (
-									<button>Teorico</button>
+									<>
+										<IconButton>
+											<AddCircleOutlineIcon />
+										</IconButton>
+									</>
 								)}
 							</>
 						}
@@ -35,9 +45,10 @@ export default function ActionsInAccordionSummary({code}) {
 						}
 					/>
 				</AccordionSummary>
-				<AccordionDetails style={{margin: "0", padding: "0"}}>
-					<Typography color="textSecondary">Dicas: tente....</Typography>
-				</AccordionDetails>
+				<Typography color="textSecondary">
+					Dicas: tente sempre usar boas práticas para que a vida útil de seu
+					código dure mais
+				</Typography>
 			</Accordion>
 			<Accordion>
 				<AccordionSummary
@@ -48,7 +59,23 @@ export default function ActionsInAccordionSummary({code}) {
 						aria-label="Acknowledge"
 						onClick={(event) => event.stopPropagation()}
 						onFocus={(event) => event.stopPropagation()}
-						control={<Checkbox />}
+						control={
+							<>
+								{code !== null ? (
+									<>
+										<IconButton>
+											<AddCircleOutlineIcon />
+										</IconButton>
+									</>
+								) : (
+									<>
+										<IconButton>
+											<AddCircleOutlineIcon />
+										</IconButton>
+									</>
+								)}
+							</>
+						}
 						label={code !== null ? "Refatorar código" : "leia 60 páginas "}
 					/>
 				</AccordionSummary>
@@ -68,7 +95,23 @@ export default function ActionsInAccordionSummary({code}) {
 						aria-label="Acknowledge"
 						onClick={(event) => event.stopPropagation()}
 						onFocus={(event) => event.stopPropagation()}
-						control={<Checkbox />}
+						control={
+							<>
+								{code !== null ? (
+									<>
+										<IconButton>
+											<AddCircleOutlineIcon />
+										</IconButton>
+									</>
+								) : (
+									<>
+										<IconButton>
+											<AddCircleOutlineIcon />
+										</IconButton>
+									</>
+								)}
+							</>
+						}
 						label={code !== null ? "Codar 30min hoje" : "faça algo"}
 					/>
 				</AccordionSummary>
