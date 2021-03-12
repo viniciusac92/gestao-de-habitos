@@ -11,20 +11,37 @@ import { SpanError, textAreaStyle, buttonStyle } from "./styled";
 // import { useProviderHabits } from "../../Providers/Habits";
 
 const LoginForm = () => {
-  const [error, setError] = useState(false);
-  const history = useHistory();
+    const [error, setError] = useState(false);
+    const history = useHistory()
 
-  const schema = yup.object().shape({
-    username: yup.string().required("campo obrigatório!"),
-    password: yup
-      .string()
-      .min(6, "mínimo de 6 caracteres")
-      .required("campo obrigatório!"),
-  });
+    const schema = yup.object().shape({
+        username: yup.string().required('campo obrigatório!'),
+        password: yup
+            .string()
+            .min(6, 'mínimo de 6 caracteres')
+            .required("campo obrigatório!")
+    })
 
-  const { register, handleSubmit, errors, reset } = useForm({
-    resolver: yupResolver(schema),
-  });
+    const { register, handleSubmit, errors, reset } = useForm({
+        resolver:yupResolver(schema)
+    })
+
+    const handleForm = data => {
+        setError(false)
+        api
+        .post('/sessions/', data)
+        .then(
+            response => {
+                localStorage.clear()
+                localStorage.setItem('token', JSON.stringify(response.data.token))
+                reset()
+                history.push('/home')
+            }
+        )
+        .catch(
+            e => setError(true)
+        )
+    }
 
   const handleForm = (data) => {
     setError(false);
@@ -88,4 +105,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginForm

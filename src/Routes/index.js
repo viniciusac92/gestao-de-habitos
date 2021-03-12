@@ -14,7 +14,7 @@ const Routes = () => {
           <LoginPage />
         </Route>
         <Route path="/home">
-          <Home />
+          <HomePage />
         </Route>
         <Route path="/register">
           <RegisterPage />
