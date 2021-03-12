@@ -1,6 +1,6 @@
-import HighlightCardDemo from "../../components/Home/card";
+import HighlightCardDemo from "../../components/card";
 import {motion} from "framer-motion";
-import HomeAppBar from "../../components/Home/appBar";
+import HomeAppBar from "../../components/appBar";
 
 const HomePage = () => {
 	return (

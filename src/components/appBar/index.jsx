@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import {ToolbarStyled, useStyles} from "../appBar/styles";
+import {ToolbarStyled, useStyles} from "./styles";
 
 const HomeAppBar = () => {
 	const classes = useStyles();
