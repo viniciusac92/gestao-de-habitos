@@ -1,6 +1,5 @@
 import HighlightCardDemo from "../../components/card";
 import {motion} from "framer-motion";
-import HomeAppBar from "../../components/appBar";
 
 const HomePage = () => {
 	return (
@@ -17,7 +16,6 @@ const HomePage = () => {
 						width: "50%",
 						justifyContent: "space-between",
 					}}>
-					<HomeAppBar />
 					<HighlightCardDemo />
 				</div>
 			</div>

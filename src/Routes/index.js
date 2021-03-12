@@ -7,26 +7,6 @@ import UserPerfilPage from "../pages/UserPerfilPage";
 import HomePage from "../pages/HomePage";
 
 const Routes = () => {
-<<<<<<< HEAD
-  return (
-    <AnimatePresence exitBeforeEnter>
-      <Switch>
-        <Route exact path="/">
-          <LoginPage />
-        </Route>
-        <Route path="/home">
-          <HomePage />
-        </Route>
-        <Route path="/register">
-          <RegisterPage />
-        </Route>
-        <Route path="/perfil">
-          <UserPerfilPage />
-        </Route>
-      </Switch>
-    </AnimatePresence>
-  );
-=======
 	return (
 		<AnimatePresence exitBeforeEnter>
 			<Switch>
@@ -45,7 +25,6 @@ const Routes = () => {
 			</Switch>
 		</AnimatePresence>
 	);
->>>>>>> feature/FuncaoAddHabit
 };
 
 export default Routes;
