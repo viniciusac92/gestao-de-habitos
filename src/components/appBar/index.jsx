@@ -8,6 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import {ToolbarStyled, useStyles} from "./styles";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const HomeAppBar = () => {
 	const classes = useStyles();
@@ -25,6 +26,9 @@ const HomeAppBar = () => {
 		<div className={classes.root}>
 			<AppBar>
 				<ToolbarStyled>
+					<Typography variant="h6" className={classes.title}>
+						Hábitos
+					</Typography>
 					<IconButton
 						edge="start"
 						className={classes.menuButton}
@@ -41,9 +45,24 @@ const HomeAppBar = () => {
 						keepMounted
 						open={Boolean(anchorEl)}
 						onClose={handleClose}>
-						<MenuItem onClick={handleClose}>Activitie #1</MenuItem>
-						<MenuItem onClick={handleClose}>Activitie #2</MenuItem>
-						<MenuItem onClick={handleClose}>Activitie #3</MenuItem>
+						<MenuItem onClick={handleClose}>
+							Activitie #1
+							<IconButton>
+								<AddCircleOutlineIcon />
+							</IconButton>
+						</MenuItem>
+						<MenuItem onClick={handleClose}>
+							Activitie #2
+							<IconButton>
+								<AddCircleOutlineIcon />
+							</IconButton>
+						</MenuItem>
+						<MenuItem onClick={handleClose}>
+							Activitie #3
+							<IconButton>
+								<AddCircleOutlineIcon />
+							</IconButton>
+						</MenuItem>
 					</Menu>
 				</ToolbarStyled>
 			</AppBar>
