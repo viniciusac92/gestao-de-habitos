@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { useProviderUser } from "../../../Providers/User";
+import CustomizedProgressBars from "./progres";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -68,18 +69,14 @@ export default function FullScreenDialog() {
           </Toolbar>
         </AppBar>
         <List>
-          <ListItem button>
-            {/* <ListItemText primary="Phone ringtone" secondary="Titania" /> */}
-            {habits !== "" && habits[0]["title"]}
-          </ListItem>
-          <Divider />
-          <ListItem button>
-            {/* <ListItemText
-              primary="Default notification ringtone"
-              secondary="Tethys"
-            /> */}
-            {habits !== "" && habits[1]["title"]}
-          </ListItem>
+          {habits !== "" &&
+            habits.map((item, i) => (
+              <div>
+                <ListItem key={i}>{item.title}</ListItem>
+                <CustomizedProgressBars value={item.how_much_achieved} />
+                <Divider />
+              </div>
+            ))}
         </List>
       </Dialog>
     </div>
