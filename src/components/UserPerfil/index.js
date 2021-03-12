@@ -1,12 +1,7 @@
-import { Avatar, CardContent, Typography } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 // import ControlledAccordions from "./styles/acordeon";
-import {
-  CardItem,
-  CardMediaUser,
-  CardUser,
-  DivItems,
-  DivPerfil,
-} from "./styles/styles";
+import { CardItem, CardUser, DivItems, DivPerfil } from "./styles/styles";
+import { Card } from "@material-ui/core";
 import { useProviderUser } from "../../Providers/User";
 import FullScreenDialog from "./styles/dialog";
 import { useEffect } from "react";
@@ -27,20 +22,20 @@ const UserPerfil = () => {
 
   return (
     <DivPerfil>
-      <CardUser>
-        <CardMediaUser>
-          <Avatar
-            alt="unloaded"
-            src={
-              "https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256__340.png"
-            }
-            style={{ height: "100px", width: "200px" }}
-          ></Avatar>
-        </CardMediaUser>
-        <CardContent>
-          <Typography>{userName}</Typography>
-        </CardContent>
-      </CardUser>
+      <Card style={CardUser.root} elevation={20}>
+        <div style={CardUser.bannerContainer}>
+          <img
+            alt="Banner Pic"
+            style={CardUser.banner}
+            src="https://source.unsplash.com/random/300x150"
+          />
+        </div>
+        <div style={CardUser.topProfile}>
+          <Avatar variant="rounded" style={CardUser.avatar} />
+          <h3 style={CardUser.userName}>Username</h3>
+        </div>
+      </Card>
+
       <DivItems>
         <CardItem onClick={() => console.log("foi")} />
         <CardItem>

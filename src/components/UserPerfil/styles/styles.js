@@ -1,15 +1,53 @@
 import { Card, CardMedia } from "@material-ui/core";
 import styled from "styled-components";
+import {
+  currentColor3,
+  currentColor1,
+  neutralColor,
+} from "../../../styles/globalStyles";
 
-export const CardUser = styled(Card)`
-  width: 25%;
-  height: 68%;
-  margin: 5%;
+export const CardUser = {
+  root: {
+    width: "300px",
+    height: "600px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: currentColor1,
+    boxShadow: `2px 2px 8px ${currentColor3}`,
+  },
+  topProfile: {
+    position: "absolute",
+    marginTop: "75px",
+    display: "flex",
+    flexDirection: "column",
+    width: "300px",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  avatar: {
+    width: "125px",
+    height: "125px",
+    border: "3px solid #FFF",
+    backgroundColor: neutralColor,
+  },
 
-  @media (max-width: 600px) {
-    width: 60%;
-  }
-`;
+  banner: {
+    width: "100%",
+    height: "100%",
+    borderBottom: `2px solid ${neutralColor}`,
+  },
+  bannerContainer: {
+    backgroundColor: neutralColor,
+    width: "300px",
+    height: "150px",
+  },
+  userName: {
+    color: neutralColor,
+    margin: "5px",
+    maxWidth: "285px",
+  },
+};
 
 export const CardMediaUser = styled(CardMedia)`
   background-image: url(https://image.freepik.com/free-vector/binary-code-pattern-background_1142-902.jpg);
