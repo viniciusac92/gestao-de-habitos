@@ -12,15 +12,11 @@ export let currentColor1 = darkColor1;
 export let currentColor2 = darkColor2;
 export let currentColor3 = darkColor3;
 
-export const D2DLogoStyle = {
-  width: "74px",
-  height: "74px",
-  backgroundColor: currentColor3,
+export const animationWrapperStyle = {
+  width: "100vw",
+  height: "100vh",
   display: "flex",
-  justifyContent: "flex-end",
-  alignItems: "flex-end",
-  padding: "2px",
-  color: currentColor1,
-  fontSize: "26px",
-  fontWeight: "750",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: currentColor2,
 };
