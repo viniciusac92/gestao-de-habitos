@@ -4,6 +4,7 @@ import { Card } from "@material-ui/core";
 import D2DLogo from "../../styles/D2DLogo";
 import { motion } from "framer-motion";
 import { animationWrapperStyle } from "../../styles/globalStyles";
+
 const LoginPage = () => {
   return (
     <motion.div
