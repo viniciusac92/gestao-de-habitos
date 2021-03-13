@@ -11,18 +11,7 @@ const HomePage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            width: "50%",
-            justifyContent: "space-between",
-          }}
-        >
-          <Home />
-        </div>
-      </div>
+      <Home />
     </motion.div>
   );
 };

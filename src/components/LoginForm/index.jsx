@@ -7,7 +7,7 @@ import api from "../../Services/index";
 import { useState } from "react";
 // import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
 import jwt_decode from "jwt-decode";
-import { SpanError, textAreaStyle, buttonStyle } from "./styled";
+import { SpanError, textAreaStyle, buttonStyle, CardLogin } from "./styled";
 // import { useProviderHabits } from "../../Providers/Habits";
 
 const LoginForm = () => {

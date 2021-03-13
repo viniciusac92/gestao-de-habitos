@@ -14,3 +14,10 @@ export const textAreaStyle = {
 export const buttonStyle = {
   backgroundColor: currentColor3,
 };
+
+export const CardLogin = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+};
