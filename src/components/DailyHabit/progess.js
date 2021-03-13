@@ -23,13 +23,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomizedProgressBars({value}) {
+export default function CustomizedProgressBars({ xp }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <br />
-      <BorderLinearProgress variant="determinate" value={value} />
+      {xp <= 100 ? (
+        <BorderLinearProgress variant="determinate" value={xp} />
+      ) : (
+        <BorderLinearProgress variant="determinate" value={100} />
+      )}
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { currentColor2, currentColor3 } from "./globalStyles";
+
 export const D2DLogo = () => {
   return (
     <svg
@@ -7,7 +9,7 @@ export const D2DLogo = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="34" height="33" rx="5" fill="#7A1FA5" />
+      <rect width="34" height="33" rx="5" fill={currentColor3} />
       <rect
         width="34"
         height="33"
@@ -28,7 +30,7 @@ export const D2DLogo = () => {
           y2="33"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#390938" />
+          <stop stop-color={currentColor2} />
           <stop offset="1" stop-color="white" stop-opacity="0" />
         </linearGradient>
       </defs>

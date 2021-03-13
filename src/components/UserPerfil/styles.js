@@ -4,7 +4,7 @@ import {
   currentColor3,
   currentColor1,
   neutralColor,
-} from "../../../styles/globalStyles";
+} from "../../styles/globalStyles";
 
 export const CardUser = {
   root: {

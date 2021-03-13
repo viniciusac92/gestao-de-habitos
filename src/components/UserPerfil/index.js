@@ -1,7 +1,7 @@
 import { Avatar } from "@material-ui/core";
-import { CardItem, CardUser, DivItems, DivPerfil } from "./styles/styles";
+import { CardItem, CardUser, DivItems, DivPerfil } from "./styles";
 import { Card } from "@material-ui/core";
-import FullScreenDialog from "./styles/dialog";
+import FullScreenDialog from "./dialog";
 import { useHabits } from '../../Providers/Habits'
 
 const UserPerfil = () => {

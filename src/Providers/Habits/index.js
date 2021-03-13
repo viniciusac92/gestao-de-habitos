@@ -5,10 +5,8 @@ const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
 
-  const token = JSON.parse(localStorage.getItem('token'))
-
   const [personHabits, setPersonHabits] = useState(()=> {
-    api.get("/habits/personal/", token)
+    api.get("/habits/personal/")
       .then((response) => setPersonHabits(response.data))
       .catch((err) => console.log(err))
   })
