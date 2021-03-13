@@ -1,6 +1,7 @@
 import Groups from "../../components/Groups";
 import {motion} from "framer-motion";
 import {animationWrapperStyle} from "../../styles/globalStyles";
+import MenuBar from "../../components/MenuBar";
 
 const GroupsPage = () => {
 	return (
@@ -10,6 +11,7 @@ const GroupsPage = () => {
 			animate={{opacity: 1}}
 			exit={{opacity: 0}}
 			transition={{duration: 1}}>
+			<MenuBar />
 			<Groups />
 		</motion.div>
 	);
