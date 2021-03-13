@@ -1,8 +1,9 @@
-import Register from "../../components/Register";
+import UserPerfil from "../../components/UserPerfil";
 import { motion } from "framer-motion";
 import { animationWrapperStyle } from "../../styles/globalStyles";
+import MenuBar from "../../components/MenuBar";
 
-const RegisterPage = () => {
+const UserPerfilPage = () => {
   return (
     <motion.div
       style={animationWrapperStyle}
@@ -11,9 +12,10 @@ const RegisterPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <Register />
+      <MenuBar/>
+      <UserPerfil />
     </motion.div>
   );
 };
 
-export default RegisterPage;
+export default UserPerfilPage;
