@@ -22,6 +22,9 @@ const Routes = () => {
 				<Route path="/profile">
 					<UserPerfilPage />
 				</Route>
+				<Route path="/users">
+					<UserPerfilPage />
+				</Route>
 			</Switch>
 		</AnimatePresence>
 	);

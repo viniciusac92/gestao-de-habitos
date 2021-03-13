@@ -1,15 +1,19 @@
-import React from "react";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import {IconButton} from "@material-ui/core";
+import { useGroup } from '../../../Providers/Group'
 
-export default function ActionsInAccordionSummary({code}) {
+const ActionsInAccordionSummary = ({code}) => {
+
+	const { group } = useGroup()
+
+	console.log(group)
+
 	return (
 		<div>
 			<Accordion>
@@ -122,3 +126,5 @@ export default function ActionsInAccordionSummary({code}) {
 		</div>
 	);
 }
+
+export default ActionsInAccordionSummary
