@@ -48,7 +48,7 @@ const Groups = (props) => {
 					aria-controls="additional-actions1-content"
 					id="additional-actions1-header">
 					<TypographyStyled>
-						MembroDoGrupo#1
+						MembroDoGrupo#1teste
 						<BoxStyled display="flex" alignItems="center">
 							<Box width="100%" mr={1}>
 								<LinearProgress variant="determinate" {...props} />
