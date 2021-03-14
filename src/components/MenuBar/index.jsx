@@ -60,10 +60,11 @@ const MenuBar = ({ isAuth, setIsAuth }) => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={() => sendTo("/perfil")}>Perfil</MenuItem>
+          <MenuItem onClick={() => sendTo("/profile")}>Perfil</MenuItem>
           <MenuItem onClick={() => sendTo("/grupo")}>Grupo</MenuItem>
-          <MenuItem onClick={() => sendTo("/trilha")}>Trilha</MenuItem>
+          <MenuItem onClick={() => sendTo("/home")}>Trilha</MenuItem>
           <MenuItem onClick={() => sendTo("/desempenho")}>Desempenho</MenuItem>
+          <MenuItem onClick={() => sendTo("/users")}>Usuários</MenuItem>
           <MenuItem onClick={handleCloseApplication}>Sair</MenuItem>
         </Menu>
       </ToolbarBox>

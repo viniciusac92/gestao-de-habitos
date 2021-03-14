@@ -1,13 +1,13 @@
 import {createContext, useContext, useEffect} from "react";
 import {useState} from "react";
 import api from "../../Services";
+import jwt_decode from "jwt-decode";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
 	const [userName, setUserName] = useState("");
 	const [error, setError] = useState(false);
-	const [habits, setHabits] = useState("");
 
 	useEffect(() => {
 		api
@@ -24,10 +24,26 @@ export const UserProvider = ({children}) => {
 			.then(() => setError(false))
 			.catch((e) => setError(true));
 	};
-	console.log(habits);
+
+	const login = (userData, setError, history, reset) => {
+		api
+			.post(`/sessions/`, userData)
+			.then((response) => {
+			  localStorage.clear();
+			  const token = JSON.stringify(response.data.access);
+			  const id = jwt_decode(token).user_id;
+			  localStorage.setItem("token", token);
+			  localStorage.setItem("id", JSON.stringify(id));
+			  reset();
+			  history.push("/home");
+			})
+			.catch((e) => setError(true));
+	};
+
+
 	return (
 		<UserContext.Provider
-			value={{userName, handleChangeUserName, error, setHabits, habits}}>
+			value={{userName, handleChangeUserName, error, login}}>
 			{children}
 		</UserContext.Provider>
 	);

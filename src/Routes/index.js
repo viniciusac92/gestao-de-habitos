@@ -4,8 +4,9 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import UserPerfilPage from "../pages/UserPerfilPage";
 import HomePage from "../pages/HomePage";
-import Route from "./route";
-import Graphic from "../components/Graphic";
+import TrailPage from "../pages/TrailPage";
+import DailyHabit from "../components/DailyHabit";
+import Route from './route'
 
 const Routes = () => {
   return (
@@ -15,7 +16,10 @@ const Routes = () => {
         <Route path="/home" component={HomePage} isPrivate />
         <Route path="/register" component={RegisterPage} />
         <Route path="/profile" component={UserPerfilPage} isPrivate />
-        <Route path="/graphic" component={Graphic} isPrivate />
+        <Route path="/trail" component={TrailPage} isPrivate>
+          <TrailPage />
+        </Route>
+        
       </Switch>
     </AnimatePresence>
   );

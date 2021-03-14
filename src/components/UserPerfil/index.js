@@ -1,25 +1,10 @@
 import { Avatar } from "@material-ui/core";
-// import ControlledAccordions from "./styles/acordeon";
-import { CardItem, CardUser, DivItems, DivPerfil } from "./styles/styles";
+import { CardItem, CardUser, DivItems, DivPerfil } from "./styles";
 import { Card } from "@material-ui/core";
-import { useProviderUser } from "../../Providers/User";
-import FullScreenDialog from "./styles/dialog";
-import { useEffect } from "react";
-import api from "../../Services";
+import FullScreenDialog from "./dialog";
+import { useHabits } from '../../Providers/Habits'
 
 const UserPerfil = () => {
-  const { userName, setHabits, habits } = useProviderUser();
-
-  useEffect(() => {
-    api
-      .get(`/habits/personal/`)
-      .then((res) => setHabits(res.data))
-      .then(() => localStorage.setItem("habits", JSON.stringify(habits)))
-      .catch((e) => console.log(e));
-  }, [userName]);
-
-  console.log(habits);
-
   return (
     <DivPerfil>
       <Card style={CardUser.root} elevation={20}>
