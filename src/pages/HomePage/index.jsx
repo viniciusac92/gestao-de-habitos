@@ -1,6 +1,7 @@
-import Home from "../../components/Home";
 import { motion } from "framer-motion";
 import { animationWrapperStyle } from "../../styles/globalStyles";
+import MenuBar from "../../components/MenuBar";
+import HighlightCardDemo from "../../components/CardHome";
 
 const HomePage = () => {
   return (
@@ -11,7 +12,10 @@ const HomePage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <Home />
+      <>
+        <MenuBar />
+        <HighlightCardDemo />
+      </>
     </motion.div>
   );
 };
