@@ -71,8 +71,8 @@ export default function FullScreenDialog() {
         <List>
           {habits !== "" &&
             habits.map((item, i) => (
-              <div>
-                <ListItem key={i}>
+              <div key={i}>
+                <ListItem>
                   <Graphic id={item.id} />
                 </ListItem>
                 <Divider />
