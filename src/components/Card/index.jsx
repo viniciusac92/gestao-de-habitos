@@ -6,7 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import { useCoverCardMediaStyles } from "@mui-treasury/styles/cardMedia/cover";
 import { Row, Item } from "@mui-treasury/components/flex";
-import ActionsInAccordionSummary from "../acordeonHome";
+import ActionsInAccordionSummary from "../AcordeonHome";
 import { Avatar, CardActions, Collapse, IconButton } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";

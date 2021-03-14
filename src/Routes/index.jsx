@@ -5,9 +5,8 @@ import RegisterPage from "../pages/RegisterPage";
 import UserPerfilPage from "../pages/UserPerfilPage";
 import HomePage from "../pages/HomePage";
 import TrailPage from "../pages/TrailPage";
-import GroupsPage from "../pages/GroupsPage";
-import DailyHabit from "../components/DailyHabit";
 import Route from "./route";
+import NotFound from "../pages/NotFoundPage";
 
 const Routes = () => {
 	return (
@@ -17,10 +16,10 @@ const Routes = () => {
 				<Route path="/home" component={HomePage} isPrivate />
 				<Route path="/register" component={RegisterPage} />
 				<Route path="/profile" component={UserPerfilPage} isPrivate />
-				<Route path="/groups" component={GroupsPage} isPrivate />
 				<Route path="/trail" component={TrailPage} isPrivate>
 					<TrailPage />
 				</Route>
+				<Route component={NotFound} />
 			</Switch>
 		</AnimatePresence>
 	);
