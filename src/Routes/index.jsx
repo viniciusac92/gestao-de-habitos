@@ -5,7 +5,7 @@ import RegisterPage from "../pages/RegisterPage";
 import UserPerfilPage from "../pages/UserPerfilPage";
 import HomePage from "../pages/HomePage";
 import TrailPage from "../pages/TrailPage";
-import DailyHabit from "../components/DailyHabit";
+// import DailyHabit from "../components/DailyHabit";
 import Route from './route'
 
 const Routes = () => {
