@@ -1,5 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Color from "color";
+import {
+  currentColor3,
+  currentColor2,
+  currentColor1,
+} from "../../styles/globalStyles";
 
 export const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -46,12 +51,14 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
   },
   cover: {
     borderRadius: "1rem",
+    width: "99%",
+    height: "99%",
   },
-  content: ({ color }: { color: string }) => ({
+  content: () => ({
     position: "relative",
     zIndex: 1,
     borderRadius: "1rem",
-    boxShadow: `0 6px 16px 0 ${Color(color).fade(0.5)}`,
+    boxShadow: `4px 4px 10px 0 ${currentColor3}`,
     "&:before": {
       content: '""',
       display: "block",
@@ -64,9 +71,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
       clipPath:
         "polygon(0% 100%, 0% 35%, 0.3% 33%, 1% 31%, 1.5% 30%, 2% 29%, 2.5% 28.4%, 3% 27.9%, 3.3% 27.6%, 5% 27%,95% 0%,100% 0%, 100% 100%)",
       borderRadius: "1rem",
-      background: `linear-gradient(to top, ${color}, ${Color(color)
-        .rotate(24)
-        .lighten(0.12)})`,
+      background: `linear-gradient(to top, ${currentColor1}, ${currentColor2})`,
     },
     [breakpoints.down("sm")]: {
       width: "300px",
@@ -89,7 +94,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
     transition: "0.3s",
     width: 100,
     height: 100,
-    boxShadow: "0 4px 12px 0 rgba(0,0,0,0.24)",
+    boxShadow: `0 4px 28px 0 ${currentColor3}`,
     borderRadius: "1rem",
     [breakpoints.down("sm")]: {
       width: 50,

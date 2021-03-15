@@ -4,14 +4,14 @@ import { HabitsProvider} from './Habits'
 
 const Providers = ({ children }) => {
   return (
-        <HabitsProvider>
-          <GroupProvider>
-            <UserProvider>
-              {children}
-            </UserProvider>
-          </GroupProvider>
-        </HabitsProvider>
-  );
+    <HabitsProvider>
+      <GroupProvider>
+        <UserProvider>
+          {children}
+        </UserProvider>
+      </GroupProvider>
+    </HabitsProvider>
+    );
 };
 
 export default Providers;
