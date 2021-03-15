@@ -1,30 +1,27 @@
-import { currentColor3, currentColor1 } from "../../styles/globalStyles";
+import { motion } from "framer-motion";
+import {
+  animationWrapperStyle,
+  currentColor3,
+  currentColor1,
+} from "../../styles/globalStyles";
 import { Line } from "react-chartjs-2";
 
 const data = {
   //informações passadas para o componente
   options: {
-    legend: {
-      display: false,
-    },
-    layout: {
-      padding: {
-        top: 140,
-        bottom: 100,
-        right: 40,
-        left: 40,
-      },
-    },
-    maintainAspectRatio: false,
     scales: {
       xAxes: [
         {
-          display: false,
+          gridLines: {
+            display: false, //esconde linhas de fundo horizontais
+          },
         },
       ],
       yAxes: [
         {
-          display: false,
+          gridLines: {
+            display: false, //esconde linhas de fundo verticais
+          },
         },
       ],
     },
@@ -39,13 +36,13 @@ const data = {
       borderDash: [15], //tamanho do traçado da linha
       pointBorderColor: currentColor1,
       pointBackgroundColor: currentColor1,
-      pointBorderWidth: 15, //tamanho da borda dos nodes
-      pointHoverRadius: 30, //tamanho dos nodes quando passa o mouse
+      pointBorderWidth: 50, //tamanho da borda dos nodes
+      pointHoverRadius: 55, //tamanho dos nodes quando passa o mouse
       pointHoverBackgroundColor: currentColor1,
       pointHoverBorderColor: currentColor3,
       pointHoverBorderWidth: 5, //grossura da borda dos nodes quando passa o mouse
-      pointRadius: 15, //tamanho dos nodes
-      pointHitRadius: 15, //tamanho dos nodes quando passa o mouse
+      pointRadius: 10, //tamanho dos nodes
+      pointHitRadius: 10, //tamanho dos nodes quando passa o mouse
       data: [
         //altura dos nodes no grafico
         Math.floor(Math.random() * 10) + 1,
@@ -60,8 +57,18 @@ const data = {
   ],
 };
 
-const Trail = () => {
-  return <Line data={data} options={data.options} />;
+const LoginPage = () => {
+  return (
+    <motion.div
+      style={animationWrapperStyle}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <Line data={data} options={data.options} />
+    </motion.div>
+  );
 };
 
-export default Trail;
+export default LoginPage;
