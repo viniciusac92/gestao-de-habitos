@@ -1,5 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Color from "color";
+import {
+  currentColor1,
+  currentColor2,
+  currentColor3,
+} from "../../../styles/globalStyles";
 
 export const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -17,7 +22,7 @@ export const useGridStyles = makeStyles(({ breakpoints }) => ({
 export const useStyles = makeStyles(({ palette, breakpoints }) => ({
   color: ({ color }: { color: string }) => ({
     "&:before": {
-      backgroundColor: Color(color).darken(0.3).desaturate(0.2).toString(),
+      backgroundColor: currentColor1,
     },
   }),
   root: {
@@ -40,18 +45,19 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
       },
       "& $logo": {
         transform: "scale(1.1)",
-        boxShadow: "0 6px 20px 0 rgba(0,0,0,0.38)",
+        boxShadow: `4px 4px 10px 0 ${currentColor3}`,
       },
     },
   },
   cover: {
     borderRadius: "1rem",
+    width: "99.9%",
   },
   content: ({ color }: { color: string }) => ({
     position: "relative",
     zIndex: 1,
     borderRadius: "1rem",
-    boxShadow: `0 6px 16px 0 ${Color(color).fade(0.5)}`,
+    boxShadow: `4px 4px 8px 0 ${currentColor3}`,
     "&:before": {
       content: '""',
       display: "block",
@@ -64,9 +70,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
       clipPath:
         "polygon(0% 100%, 0% 35%, 0.3% 33%, 1% 31%, 1.5% 30%, 2% 29%, 2.5% 28.4%, 3% 27.9%, 3.3% 27.6%, 5% 27%,95% 0%,100% 0%, 100% 100%)",
       borderRadius: "1rem",
-      background: `linear-gradient(to top, ${color}, ${Color(color)
-        .rotate(24)
-        .lighten(0.12)})`,
+      background: `linear-gradient(to top, ${currentColor1}, ${currentColor2})`,
     },
     [breakpoints.down("sm")]: {
       width: "300px",
@@ -89,7 +93,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
     transition: "0.3s",
     width: 100,
     height: 100,
-    boxShadow: "0 4px 12px 0 rgba(0,0,0,0.24)",
+    boxShadow: `1px 1px 4px 0 ${currentColor3}`,
     borderRadius: "1rem",
     [breakpoints.down("sm")]: {
       width: 50,
