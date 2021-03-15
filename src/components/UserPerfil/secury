@@ -2,8 +2,6 @@ import { Avatar } from "@material-ui/core";
 import { CardItem, CardUser, DivItems, DivPerfil } from "./styles";
 import { Card } from "@material-ui/core";
 import FullScreenDialog from "./dialog";
-import { useHabits } from '../../Providers/Habits'
-import FullScreenDialogGroup from "./dialogGroup";
 
 const UserPerfil = () => {
   return (
@@ -23,11 +21,10 @@ const UserPerfil = () => {
       </Card>
 
       <DivItems>
-        <CardItem />
+        <CardItem onClick={() => console.log("foi")} />
         <CardItem>
           Hábitos <FullScreenDialog />
         </CardItem>
-          Grupo <FullScreenDialogGroup />
         <CardItem />
         <CardItem />
       </DivItems>
