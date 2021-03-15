@@ -11,6 +11,7 @@ import { Avatar, CardActions, Collapse, IconButton } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useGridStyles, useStyles, cardsWrapperStyle } from "./styles";
+import { currentColor1 } from "../../../styles/globalStyles";
 
 const CustomCard = ({
   styles,
@@ -79,8 +80,8 @@ const CustomCard = ({
 };
 
 export const HighlightCardDemo = React.memo(function HighlightCard() {
-  const styles1 = useStyles({ color: "#685ed0" });
-  const styles2 = useStyles({ color: "#5357ce" });
+  const styles1 = useStyles({ color: currentColor1 });
+  const styles2 = useStyles({ color: currentColor1 });
 
   const gridStyles = useGridStyles();
   return (
