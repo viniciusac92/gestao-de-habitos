@@ -12,10 +12,19 @@ import {Avatar} from "@material-ui/core";
 import {Card} from "@material-ui/core";
 import {useGroup} from "../../Providers/Group";
 import {useProviderUser} from "../../Providers/User";
+import {useEffect} from "react";
+import {useState} from "react";
 
 const Groups = (props) => {
 	const {group} = useGroup();
 	const {userName} = useProviderUser();
+	const [progress, setProgress] = useState(10);
+
+	useEffect(() => {
+		setProgress((prevProgress) =>
+			prevProgress >= 100 ? 10 : prevProgress + 10
+		);
+	}, []);
 
 	console.log(group);
 	console.log(group?.users);
@@ -48,7 +57,7 @@ const Groups = (props) => {
 									</Box>
 									<Box minWidth={35}>
 										<TypographyStyled variant="body2">
-											{`${userProfile.id} XP`}
+											{`${progress}%`}
 										</TypographyStyled>
 									</Box>
 								</BoxStyled>
