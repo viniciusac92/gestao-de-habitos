@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { animationWrapperStyle } from "../../styles/globalStyles";
+import Trail from "../../components/Trail";
 import MenuBar from "../../components/MenuBar";
-import HighlightCardDemo from "../../components/CardHome";
-
-const HomePage = () => {
+import { animationWrapperStyle } from "../../styles/globalStyles";
+const TrailPage = () => {
   return (
     <motion.div
       style={animationWrapperStyle}
@@ -12,12 +11,10 @@ const HomePage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <>
-        <MenuBar />
-        <HighlightCardDemo />
-      </>
+      <MenuBar />
+      <Trail />
     </motion.div>
   );
 };
 
-export default HomePage;
+export default TrailPage;

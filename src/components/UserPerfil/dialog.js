@@ -9,9 +9,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from '../../Providers/Habits'
-import { Divider, ListItem } from "@material-ui/core";
-import Graphic from '../DailyHabit'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -29,9 +26,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function FullScreenDialog() {
   const classes = useStyles();
-
-  const { personHabits } = useHabits()
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -69,14 +63,15 @@ export default function FullScreenDialog() {
           </Toolbar>
         </AppBar>
         <List>
-            {personHabits && personHabits.map((item, i) => (
-              <div>
-                <ListItem key={i}>
+          {/* {habits !== "" &&
+            habits.map((item, i) => (
+              <div key={i}>
+                <ListItem>
                   <Graphic id={item.id} />
                 </ListItem>
                 <Divider />
               </div>
-            ))}
+            ))} */}
         </List>
       </Dialog>
     </div>
