@@ -1,10 +1,16 @@
 import React from "react";
+<<<<<<< HEAD:src/components/HabitTrail/index.jsx
 // import PropTypes from "prop-types";
 import {makeStyles, withStyles} from "@material-ui/core/styles";
+=======
+import PropTypes from "prop-types";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+>>>>>>> b3be5e9e451a6cefab3e5c690f1e8d1aa326065a:src/pages/HabitTrail/index.js
 import clsx from "clsx";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
+<<<<<<< HEAD:src/components/HabitTrail/index.jsx
 // import Check from "@material-ui/icons/Check";
 // import SettingsIcon from "@material-ui/icons/Settings";
 // import GroupAddIcon from "@material-ui/icons/GroupAdd";
@@ -12,6 +18,15 @@ import StepLabel from "@material-ui/core/StepLabel";
 //import StepConnector from "@material-ui/core/StepConnector";
 // import Button from "@material-ui/core/Button";
 // import Typography from "@material-ui/core/Typography";
+=======
+import Check from "@material-ui/icons/Check";
+import SettingsIcon from "@material-ui/icons/Settings";
+import GroupAddIcon from "@material-ui/icons/GroupAdd";
+import VideoLabelIcon from "@material-ui/icons/VideoLabel";
+import StepConnector from "@material-ui/core/StepConnector";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+>>>>>>> b3be5e9e451a6cefab3e5c690f1e8d1aa326065a:src/pages/HabitTrail/index.js
 import {
 	currentColor1,
 	currentColor2,

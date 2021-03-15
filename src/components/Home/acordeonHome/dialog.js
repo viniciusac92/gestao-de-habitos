@@ -9,9 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from '../../Providers/Habits'
-import { Divider, ListItem } from "@material-ui/core";
-import Graphic from '../DailyHabit'
+import { useHabits } from '../../../Providers/Habits'
+import { useGroup } from '../../../Providers/Group'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -27,10 +26,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog() {
+export default function FullScreenDialog({title}) {
   const classes = useStyles();
 
-  const { personHabits } = useHabits()
+  const { handleActivities, handleGoals } = useGroup()
+
+  const { handleHabit } = useHabits()
 
   const [open, setOpen] = React.useState(false);
 
@@ -42,10 +43,16 @@ export default function FullScreenDialog() {
     setOpen(false);
   };
 
+  const createActions = () => {
+    handleActivities(title)
+    handleHabit(title)
+    handleGoals(title)
+  }
+
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Habits List
+        GO!
       </Button>
       <Dialog
         fullScreen
@@ -64,19 +71,12 @@ export default function FullScreenDialog() {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Habits
+              Tarefa diária
             </Typography>
           </Toolbar>
         </AppBar>
         <List>
-            {personHabits && personHabits.map((item, i) => (
-              <div>
-                <ListItem key={i}>
-                  <Graphic id={item.id} />
-                </ListItem>
-                <Divider />
-              </div>
-            ))}
+          <button onClick={() => createActions()}>Executar tarefa</button>
         </List>
       </Dialog>
     </div>

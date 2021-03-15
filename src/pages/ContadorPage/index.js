@@ -1,8 +1,8 @@
+import Contador from "../../components/Contador/index";
 import { motion } from "framer-motion";
-import Trail from "../../components/Trail";
-import MenuBar from "../../components/MenuBar";
 import { animationWrapperStyle } from "../../styles/globalStyles";
-const TrailPage = () => {
+
+const ContadorPage = () => {
   return (
     <motion.div
       style={animationWrapperStyle}
@@ -11,10 +11,9 @@ const TrailPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <MenuBar />
-      <Trail />
+      <Contador />
     </motion.div>
   );
 };
 
-export default TrailPage;
+export default ContadorPage;

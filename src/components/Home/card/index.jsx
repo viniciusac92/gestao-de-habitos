@@ -6,12 +6,12 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import { useCoverCardMediaStyles } from "@mui-treasury/styles/cardMedia/cover";
 import { Row, Item } from "@mui-treasury/components/flex";
-import ActionsInAccordionSummary from "../AcordeonHome";
+import ActionsInAccordionSummary from "../acordeonHome";
 import { Avatar, CardActions, Collapse, IconButton } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useGridStyles, useStyles, cardsWrapperStyle } from "./styles";
-import { currentColor1 } from "../../styles/globalStyles";
+import { currentColor1 } from "../../../styles/globalStyles";
 
 const CustomCard = ({
   styles,
