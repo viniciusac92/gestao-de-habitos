@@ -6,13 +6,12 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import {IconButton} from "@material-ui/core";
-import { useGroup } from '../../Providers/Group'
+import {useGroup} from "../../Providers/Group";
 
 const ActionsInAccordionSummary = ({code}) => {
+	const {group} = useGroup();
 
-	const { group } = useGroup()
-
-	console.log(group)
+	console.log(group);
 
 	return (
 		<div>
@@ -125,6 +124,6 @@ const ActionsInAccordionSummary = ({code}) => {
 			</Accordion>
 		</div>
 	);
-}
+};
 
-export default ActionsInAccordionSummary
+export default ActionsInAccordionSummary;

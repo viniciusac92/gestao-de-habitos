@@ -25,8 +25,14 @@ import {
 import {Avatar} from "@material-ui/core";
 import {Card} from "@material-ui/core";
 import {useHabits} from "../../Providers/Habits";
+import {useGroup} from "../../Providers/Group";
 
 const Groups = (props) => {
+	const {group} = useGroup();
+
+	console.log(group);
+	console.log(group["id"]);
+
 	return (
 		<DivItems>
 			<DivPerfil>
@@ -41,69 +47,88 @@ const Groups = (props) => {
 					<div style={CardUser.topProfile}>
 						<Avatar variant="rounded" style={CardUser.avatar} />
 					</div>
-					<h3 style={CardUser.userName}>Username</h3>
+					<h3 style={CardUser.userName}>username</h3>
 					{/* <Typography variant="h2" component="h2">
 						Username
 					</Typography> */}
 				</Card>
 			</DivPerfil>
+			{/* {group.users.map((userProfile, index) => {
+				<div key={index}>
+					<List>
+						<ListItemStyled>
+							<TypographyStyled>{userProfile.username}</TypographyStyled>
+							<BoxStyled display="flex" alignItems="center">
+								<Box width="100%" mr={1}>
+									<LinearProgress variant="determinate" {...props} />
+								</Box>
+								<Box minWidth={35}>
+									<TypographyStyled variant="body2">78 Pontos</TypographyStyled>
+								</Box>
+							</BoxStyled>
+							<TypographyStyled>Lorem Ipsum</TypographyStyled>
+						</ListItemStyled>
+					</List>
+					<DividerStyled />
+				</div>;
+			})} */}
 			<List>
 				<ListItemStyled>
-					<TypographyStyled>Photos</TypographyStyled>
+					{/* <TypographyStyled>{group.users[0].username}</TypographyStyled> */}
 					<BoxStyled display="flex" alignItems="center">
 						<Box width="100%" mr={1}>
 							<LinearProgress variant="determinate" {...props} />
 						</Box>
 						<Box minWidth={35}>
-							<TypographyStyled>78 Pontos</TypographyStyled>
+							<TypographyStyled variant="body2">78 Pontos</TypographyStyled>
 						</Box>
 					</BoxStyled>
-					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+					<TypographyStyled>Lorem Ipsum</TypographyStyled>
 				</ListItemStyled>
 			</List>
 			<DividerStyled />
 			<List>
 				<ListItemStyled>
-					<TypographyStyled>Photos</TypographyStyled>
+					{/* <TypographyStyled>{group.users[0].username}</TypographyStyled> */}
 					<BoxStyled display="flex" alignItems="center">
 						<Box width="100%" mr={1}>
 							<LinearProgress variant="determinate" {...props} />
 						</Box>
 						<Box minWidth={35}>
-							<TypographyStyled>78 Pontos</TypographyStyled>
+							<TypographyStyled variant="body2">78 Pontos</TypographyStyled>
 						</Box>
 					</BoxStyled>
-					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+					<TypographyStyled>Lorem Ipsum</TypographyStyled>
 				</ListItemStyled>
 			</List>
 			<DividerStyled />
 			<List>
 				<ListItemStyled>
-					<TypographyStyled>Photos</TypographyStyled>
+					{/* <TypographyStyled>{group.users[0].username}</TypographyStyled> */}
 					<BoxStyled display="flex" alignItems="center">
 						<Box width="100%" mr={1}>
 							<LinearProgress variant="determinate" {...props} />
 						</Box>
 						<Box minWidth={35}>
-							<TypographyStyled>78 Pontos</TypographyStyled>
+							<TypographyStyled variant="body2">78 Pontos</TypographyStyled>
 						</Box>
 					</BoxStyled>
-					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+					<TypographyStyled>Lorem Ipsum</TypographyStyled>
 				</ListItemStyled>
 			</List>
 			<DividerStyled />
 			<List>
 				<ListItemStyled>
-					<TypographyStyled>Photos</TypographyStyled>
+					{/* <TypographyStyled>{group.users[0].username}</TypographyStyled> */}
 					<BoxStyled display="flex" alignItems="center">
 						<Box width="100%" mr={1}>
 							<LinearProgress variant="determinate" {...props} />
 						</Box>
 						<Box minWidth={35}>
-							<TypographyStyled>78 Pontos</TypographyStyled>
+							<TypographyStyled variant="body2">78 Pontos</TypographyStyled>
 						</Box>
 					</BoxStyled>
-					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+					<TypographyStyled>Lorem Ipsum</TypographyStyled>
 				</ListItemStyled>
 			</List>
 			<DividerStyled />
