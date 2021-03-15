@@ -9,21 +9,24 @@ import {
 	TypographyStyled,
 	DivStyled,
 	CardUser,
+	ListItemStyled,
+	ListItemTextStyled,
+	DividerStyled,
 } from "./styles";
-import {Box, LinearProgress, Typography} from "@material-ui/core";
+import {
+	Box,
+	LinearProgress,
+	Typography,
+	List,
+	ListItem,
+	ListItemText,
+	Divider,
+} from "@material-ui/core";
 import {Avatar} from "@material-ui/core";
 import {Card} from "@material-ui/core";
 import {useHabits} from "../../Providers/Habits";
 
 const Groups = (props) => {
-	// const useStyles = makeStyles({
-	// 	root: {
-	// 		width: "100%",
-	// 	},
-	// });
-
-	// const classes = useStyles();
-
 	return (
 		<DivItems>
 			<DivPerfil>
@@ -39,80 +42,71 @@ const Groups = (props) => {
 						<Avatar variant="rounded" style={CardUser.avatar} />
 					</div>
 					<h3 style={CardUser.userName}>Username</h3>
+					{/* <Typography variant="h2" component="h2">
+						Username
+					</Typography> */}
 				</Card>
 			</DivPerfil>
-			<Accordion>
-				<AccordionSummaryStyled
-					expandIcon={<ExpandMoreIcon />}
-					aria-label="Expand"
-					aria-controls="additional-actions1-content"
-					id="additional-actions1-header">
-					<TypographyStyled>
-						MembroDoGrupo#1teste
-						<BoxStyled display="flex" alignItems="center">
-							<Box width="100%" mr={1}>
-								<LinearProgress variant="determinate" {...props} />
-							</Box>
-							<Box minWidth={35}>
-								<Typography variant="body2" color="textSecondary">
-									78 Pontos
-								</Typography>
-							</Box>
-						</BoxStyled>
-					</TypographyStyled>
-				</AccordionSummaryStyled>
-				<Typography variant="body2" color="textSecondary">
-					Lorem Ipsum
-				</Typography>
-			</Accordion>
-			<Accordion>
-				<AccordionSummaryStyled
-					expandIcon={<ExpandMoreIcon />}
-					aria-label="Expand"
-					aria-controls="additional-actions1-content"
-					id="additional-actions1-header">
-					<TypographyStyled>
-						MembroDoGrupo#2
-						<BoxStyled display="flex" alignItems="center">
-							<Box width="100%" mr={1}>
-								<LinearProgress variant="determinate" {...props} />
-							</Box>
-							<Box minWidth={35}>
-								<Typography variant="body2" color="textSecondary">
-									50 Pontos
-								</Typography>
-							</Box>
-						</BoxStyled>
-					</TypographyStyled>
-				</AccordionSummaryStyled>
-				<Typography variant="body2" color="textSecondary">
-					Lorem Ipsum
-				</Typography>
-			</Accordion>
-			<Accordion>
-				<AccordionSummaryStyled
-					expandIcon={<ExpandMoreIcon />}
-					aria-label="Expand"
-					aria-controls="additional-actions1-content"
-					id="additional-actions1-header">
-					<TypographyStyled>
-						MembroDoGrupo#3
-						<BoxStyled display="flex" alignItems="center">
-							<Box width="100%" mr={1}>
-								<LinearProgress variant="determinate" {...props} />
-							</Box>
-							<Box minWidth={35}>
-								<Typography variant="body2" color="textSecondary">
-									42 Pontos
-								</Typography>
-							</Box>
-						</BoxStyled>
-					</TypographyStyled>
-				</AccordionSummaryStyled>
-				<Typography variant="body2" color="textSecondary">
-					Lorem Ipsum
-				</Typography>
-			</Accordion>
+			<List>
+				<ListItemStyled>
+					<TypographyStyled>Photos</TypographyStyled>
+					<BoxStyled display="flex" alignItems="center">
+						<Box width="100%" mr={1}>
+							<LinearProgress variant="determinate" {...props} />
+						</Box>
+						<Box minWidth={35}>
+							<TypographyStyled>78 Pontos</TypographyStyled>
+						</Box>
+					</BoxStyled>
+					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+				</ListItemStyled>
+			</List>
+			<DividerStyled />
+			<List>
+				<ListItemStyled>
+					<TypographyStyled>Photos</TypographyStyled>
+					<BoxStyled display="flex" alignItems="center">
+						<Box width="100%" mr={1}>
+							<LinearProgress variant="determinate" {...props} />
+						</Box>
+						<Box minWidth={35}>
+							<TypographyStyled>78 Pontos</TypographyStyled>
+						</Box>
+					</BoxStyled>
+					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+				</ListItemStyled>
+			</List>
+			<DividerStyled />
+			<List>
+				<ListItemStyled>
+					<TypographyStyled>Photos</TypographyStyled>
+					<BoxStyled display="flex" alignItems="center">
+						<Box width="100%" mr={1}>
+							<LinearProgress variant="determinate" {...props} />
+						</Box>
+						<Box minWidth={35}>
+							<TypographyStyled>78 Pontos</TypographyStyled>
+						</Box>
+					</BoxStyled>
+					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+				</ListItemStyled>
+			</List>
+			<DividerStyled />
+			<List>
+				<ListItemStyled>
+					<TypographyStyled>Photos</TypographyStyled>
+					<BoxStyled display="flex" alignItems="center">
+						<Box width="100%" mr={1}>
+							<LinearProgress variant="determinate" {...props} />
+						</Box>
+						<Box minWidth={35}>
+							<TypographyStyled>78 Pontos</TypographyStyled>
+						</Box>
+					</BoxStyled>
+					<TypographyStyled>Jan 9, 2014</TypographyStyled>
+				</ListItemStyled>
+			</List>
+			<DividerStyled />
 		</DivItems>
 	);
 };

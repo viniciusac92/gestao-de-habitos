@@ -1,10 +1,31 @@
 import styled from "styled-components";
-import {Box, AccordionSummary, Typography} from "@material-ui/core";
+import {
+	Box,
+	AccordionSummary,
+	Typography,
+	ListItem,
+	ListItemText,
+	Divider,
+} from "@material-ui/core";
 import {
 	currentColor3,
 	currentColor1,
 	neutralColor,
 } from "../../styles/globalStyles";
+
+export const DividerStyled = styled(Divider)`
+	background-color: rgb(253 250 250 / 56%);
+`;
+
+export const ListItemTextStyled = styled(ListItemText)`
+	color: white;
+`;
+
+export const ListItemStyled = styled(ListItem)`
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: start !important;
+`;
 
 export const DivStyled = styled.div`
 	display: flex;
@@ -12,7 +33,7 @@ export const DivStyled = styled.div`
 `;
 
 export const DivPerfil = styled.div`
-	display: flex;
+	/* display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
@@ -21,16 +42,16 @@ export const DivPerfil = styled.div`
 
 	@media (max-width: 600px) {
 		flex-direction: column;
-	}
+	} */
 `;
 
 export const CardUser = {
 	root: {
-		width: "1420px",
+		// width: "1420px",
 		height: "300px",
 		display: "flex",
 		flexDirection: "row",
-		justifyContent: "space-between",
+		justifyContent: "start",
 		alignItems: "center",
 		backgroundColor: currentColor1,
 		boxShadow: `2px 2px 8px ${currentColor3}`,
@@ -65,11 +86,13 @@ export const CardUser = {
 		color: neutralColor,
 		margin: "5px",
 		maxWidth: "285px",
+		fontSize: "40px",
 	},
 };
 
 export const TypographyStyled = styled(Typography)`
 	width: 100% !important;
+	color: white;
 `;
 
 export const BoxStyled = styled(Box)`
