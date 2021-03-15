@@ -1,8 +1,9 @@
-import Home from "../../components/Home";
+import UserPerfil from "../../components/UserPerfil";
 import { motion } from "framer-motion";
 import { animationWrapperStyle } from "../../styles/globalStyles";
+import MenuBar from "../../components/MenuBar";
 
-const HomePage = () => {
+const UserPerfilPage = () => {
   return (
     <motion.div
       style={animationWrapperStyle}
@@ -11,9 +12,10 @@ const HomePage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <Home />
+      <MenuBar/>
+      <UserPerfil />
     </motion.div>
   );
 };
 
-export default HomePage;
+export default UserPerfilPage;

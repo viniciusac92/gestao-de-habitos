@@ -9,9 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from '../../Providers/Habits'
+import { useGroup } from '../../Providers/Group'
 import { Divider, ListItem } from "@material-ui/core";
-import Graphic from '../DailyHabit'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -27,10 +26,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog() {
+export default function FullScreenDialogGroup() {
   const classes = useStyles();
 
-  const { personHabits } = useHabits()
+  const { goals } = useGroup()
 
   const [open, setOpen] = React.useState(false);
 
@@ -45,7 +44,7 @@ export default function FullScreenDialog() {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Habits List
+        goals List
       </Button>
       <Dialog
         fullScreen
@@ -64,15 +63,14 @@ export default function FullScreenDialog() {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Habits
+              Estatísticas do grupo
             </Typography>
           </Toolbar>
         </AppBar>
         <List>
-            {personHabits && personHabits.map((item, i) => (
+            {goals && goals.map((item, i) => (
               <div>
                 <ListItem key={i}>
-                  <Graphic id={item.id} />
                 </ListItem>
                 <Divider />
               </div>
