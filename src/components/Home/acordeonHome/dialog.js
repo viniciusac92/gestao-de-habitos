@@ -2,20 +2,18 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import List from "@material-ui/core/List";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from '../../../Providers/Habits'
-import { useGroup } from '../../../Providers/Group'
+import { useHabits } from "../../../Providers/Habits";
+import { useGroup } from "../../../Providers/Group";
+import CircularTimer from "../../CircularTimer/index";
+import { appBarStyle, titleStyle, modalStyle, buttonStyle } from "./style";
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
@@ -26,14 +24,18 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog({title}) {
+export default function FullScreenDialog({ title }) {
   const classes = useStyles();
 
-  const { handleActivities, handleGoals } = useGroup()
+  const { handleActivities, handleGoals } = useGroup();
 
-  const { handleHabit } = useHabits()
+  const { handleHabit } = useHabits();
 
   const [open, setOpen] = React.useState(false);
+  const [timer, setTimer] = React.useState({
+    choseTime: false,
+    timeChosen: 10,
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -41,13 +43,17 @@ export default function FullScreenDialog({title}) {
 
   const handleClose = () => {
     setOpen(false);
+    setTimer({
+      choseTime: false,
+      timeChosen: 10,
+    });
   };
 
   const createActions = () => {
-    handleActivities(title)
-    handleHabit(title)
-    handleGoals(title)
-  }
+    handleActivities(title);
+    handleHabit(title);
+    handleGoals(title);
+  };
 
   return (
     <div>
@@ -60,24 +66,65 @@ export default function FullScreenDialog({title}) {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AppBar className={classes.appBar}>
+        <AppBar style={appBarStyle}>
           <Toolbar>
             <IconButton
               edge="start"
-              color="inherit"
+              style={titleStyle}
               onClick={handleClose}
               aria-label="close"
             >
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" style={titleStyle}>
               Tarefa diária
             </Typography>
           </Toolbar>
         </AppBar>
-        <List>
-          <button onClick={() => createActions()}>Executar tarefa</button>
-        </List>
+        {timer.choseTime ? (
+          <div style={modalStyle}>
+            <CircularTimer howMuchTime={timer.timeChosen} />
+            <Button
+              variant="contained"
+              style={buttonStyle}
+              onClick={() => createActions()}
+            >
+              Tarefa concluída
+            </Button>
+          </div>
+        ) : (
+          <div style={modalStyle}>
+            <h1>Escolha um temporizador:</h1>
+            <Button
+              variant="contained"
+              style={buttonStyle}
+              onClick={() => setTimer({ choseTime: true, timeChosen: 60 })}
+            >
+              1 minuto
+            </Button>
+            <Button
+              variant="contained"
+              style={buttonStyle}
+              onClick={() => setTimer({ choseTime: true, timeChosen: 300 })}
+            >
+              5 minutos
+            </Button>
+            <Button
+              variant="contained"
+              style={buttonStyle}
+              onClick={() => setTimer({ choseTime: true, timeChosen: 600 })}
+            >
+              10 minutos
+            </Button>
+            <Button
+              variant="contained"
+              style={buttonStyle}
+              onClick={() => setTimer({ choseTime: true, timeChosen: 1800 })}
+            >
+              30 minutos
+            </Button>
+          </div>
+        )}
       </Dialog>
     </div>
   );

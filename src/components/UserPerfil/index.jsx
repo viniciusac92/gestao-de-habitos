@@ -1,10 +1,7 @@
-import {Avatar} from "@material-ui/core";
-import {CardItem, CardUser, DivItems, DivPerfil} from "./styles";
-import {Card} from "@material-ui/core";
-import FullScreenDialog from "./dialog";
-import {useHabits} from "../../Providers/Habits";
-import FullScreenDialogGroup from "./dialogGroup";
-import DialogMyGroupList from "./dialogMyGroupList";
+import { Avatar } from "@material-ui/core";
+import { PerfilButtonStyle, CardUser, DivItems, DivPerfil } from "./styles";
+import { Card } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const UserPerfil = () => {
 	return (
@@ -23,21 +20,25 @@ const UserPerfil = () => {
 				</div>
 			</Card>
 
-			<DivItems>
-				<CardItem />
-				<CardItem>
-					Hábitos <FullScreenDialog />
-				</CardItem>
-				Grupo <FullScreenDialogGroup />
-				<CardItem />
-				<CardItem>
-					LISTAGEM DO MEU GRUPO
-					<DialogMyGroupList />
-				</CardItem>
-				<CardItem />
-			</DivItems>
-		</DivPerfil>
-	);
+      <DivItems>
+        <Button variant="contained" style={PerfilButtonStyle}>
+          EDITAR PERFIL
+        </Button>
+        <Button variant="contained" style={PerfilButtonStyle}>
+          ESTATISTICAS DE USUARIO
+        </Button>
+        <Button variant="contained" style={PerfilButtonStyle}>
+          ESTATISTICAS DOS GRUPOS
+        </Button>
+        <Button variant="contained" style={PerfilButtonStyle}>
+          LISTAGEM DE USUARIOS DO SEU GRUPO
+        </Button>
+        <Button variant="contained" style={PerfilButtonStyle}>
+          CONFIGURAÇÕES
+        </Button>
+      </DivItems>
+    </DivPerfil>
+  );
 };
 
 export default UserPerfil;

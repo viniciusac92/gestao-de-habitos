@@ -6,8 +6,17 @@ import {
   neutralColor,
 } from "../../styles/globalStyles";
 
+export const PerfilButtonStyle = {
+  backgroundColor: currentColor1,
+  color: neutralColor,
+  width: "80%",
+  margin: "25px",
+  boxShadow: `2px 2px 8px ${currentColor3}`,
+};
+
 export const CardUser = {
   root: {
+    marginTop: "5%",
     width: "300px",
     height: "600px",
     display: "flex",
@@ -75,9 +84,9 @@ export const DivItems = styled.div`
   height: 45%;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  justify-content: center;
   @media (max-width: 600px) {
-    align-items: center;
     width: 90%;
   }
 `;
