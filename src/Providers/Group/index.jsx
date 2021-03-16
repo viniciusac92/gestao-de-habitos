@@ -74,7 +74,6 @@ export const GroupProvider = ({children}) => {
 	};
 
 	const handleAverage = (acti) => {
-		console.log(acti);
 		const averageObj = {};
 		acti.forEach((e) => {
 			if (averageObj[e.realization_time.substring(0, 10)] === undefined) {
