@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import TrailPage from "../pages/TrailPage";
 import Route from "./route";
 import NotFound from "../pages/NotFoundPage";
+import ContadorPage from "../pages/ContadorPage";
 
 const Routes = () => {
   return (
