@@ -15,42 +15,72 @@ export const HabitsProvider = ({ children }) => {
   },[personHabits])
 
 
-  const handleHabit = title => {
-    const testHabit = personHabits.filter(e=>title===e.title)[0]
-    if(testHabit === undefined){
+  const handleHabit = (title, date) => {
+    const currentHabit = personHabits.filter(e=>title===e.title)[0]
+    if(currentHabit === undefined){
       const data = {
       title: title,
       category: "Progamação",
       difficulty: "Muito díficil",
-      frequency: `{"day0": "${new Date().toISOString()}"}`,
+      frequency: `{"7": "${new Date().getTime()}","0":1,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0}`,
       achieved: true,
       how_much_achieved: 1,
       user: localStorage.getItem('id')
-    }
-    api.post("/habits/", data)
-      .then(() => setPersonHabits(false))
-      .catch((err) => console.log(err))
-  
-    setPersonHabits(false)
+      }
+
+      api.post(`/habits/`, data)
+        .then(() => setPersonHabits(false))
+        .catch((err) => console.log(err))
+
     }
     else {
-      const data2 = {
-        title: testHabit.title,
-        category: testHabit.category,
-        difficulty: testHabit.difficulty,
-        frequency: testHabit.frequency,
-        achieved: testHabit.achieved,
-        how_much_achieved: testHabit.how_much_achieved + 1
+      
+      let information = JSON.parse(currentHabit.frequency)
+
+      const currentDay = Math.floor((new Date().getTime() - parseInt(information[7])) / (1000*60*60*24))
+
+      if(currentDay > 6) {
+        information = {"7": information[7],"0":1,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0}
+      }else{
+        information[currentDay]++
       }
-      api.patch(`/habits/${testHabit.id}/`, data2)
+
+      const newInformation = JSON.stringify(information)
+
+      const data2 = {
+        title: currentHabit.title,
+        category: currentHabit.category,
+        difficulty: currentHabit.difficulty,
+        frequency: newInformation,
+        achieved: currentHabit.achieved,
+        how_much_achieved: currentHabit.how_much_achieved + 1
+      }
+      api.patch(`/habits/${currentHabit.id}/`, data2)
         .then(() => setPersonHabits(false))
         .catch((err) => console.log(err))
     }
   }
 
+  const averageHabits = () => {
+    console.log(personHabits)
+    const accumFrequency = {}
+    personHabits.forEach(element => {
+      const informations = JSON.parse(element.frequency)
+      for(let inf in informations) {
+        if(accumFrequency[inf] === undefined) {
+          accumFrequency[inf] = informations[inf]
+        }else{
+          accumFrequency[inf]+= informations[inf]
+        }
+
+      }
+    });
+    return accumFrequency
+  }
+
 
   return (
-    <HabitsContext.Provider value={{ personHabits, setPersonHabits, handleHabit }}>
+    <HabitsContext.Provider value={{ personHabits, setPersonHabits, handleHabit, averageHabits }}>
       {children}
     </HabitsContext.Provider>
   );

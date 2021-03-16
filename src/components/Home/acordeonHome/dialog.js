@@ -29,7 +29,7 @@ export default function FullScreenDialog({ title }) {
 
   const { handleActivities, handleGoals } = useGroup();
 
-  const { handleHabit } = useHabits();
+  const { handleHabit, averageHabits } = useHabits();
 
   const [open, setOpen] = React.useState(false);
   const [timer, setTimer] = React.useState({
@@ -50,9 +50,11 @@ export default function FullScreenDialog({ title }) {
   };
 
   const createActions = () => {
-    handleActivities(title);
-    handleHabit(title);
-    handleGoals(title);
+    // handleActivities(title);
+    // alert(title)
+    handleHabit(title, new Date());
+    // handleGoals(title);
+    handleClose()
   };
 
   return (
