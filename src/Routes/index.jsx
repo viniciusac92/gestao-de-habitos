@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import TrailPage from "../pages/TrailPage";
 import Route from "./route";
 import NotFound from "../pages/NotFoundPage";
+import EditableHabitsPage from "../pages/EditableHabitsPage";
 
 const Routes = () => {
   return (
@@ -19,6 +20,7 @@ const Routes = () => {
         <Route path="/trail" component={TrailPage} isPrivate>
           <TrailPage />
         </Route>
+        <Route path="/personal" component={EditableHabitsPage} isPrivate />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>

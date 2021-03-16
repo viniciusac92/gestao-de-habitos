@@ -1,15 +1,15 @@
 import { createContext, useContext, useState } from "react";
-import api from '../../Services'
+import api from "../../Services";
 
 const GroupContext = createContext();
 
 export const GroupProvider = ({ children }) => {
-
-  const [group, setGroup] = useState(()=> {
-    api.get("/groups/26/")
+  const [group, setGroup] = useState(() => {
+    api
+      .get("/groups/26/")
       .then((response) => setGroup(response.data))
-      .catch((err) => console.log(err))
-  })
+      .catch((err) => console.log(err));
+  });
 
   return (
     <GroupContext.Provider value={{ group, setGroup }}>

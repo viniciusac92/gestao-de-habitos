@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ToolbarBox } from "./styles";
 import { D2DLogo } from "../../styles/D2DLogo";
 
-const MenuBar = ({ isAuth, setIsAuth }) => {
+const MenuBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const history = useHistory();
 
@@ -19,8 +19,7 @@ const MenuBar = ({ isAuth, setIsAuth }) => {
   };
 
   const handleCloseApplication = () => {
-    sessionStorage.clear();
-    setIsAuth(false);
+    localStorage.clear();
     sendTo("/");
   };
 
