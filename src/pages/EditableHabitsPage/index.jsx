@@ -1,11 +1,7 @@
 import Editable from "../../components/Editable";
 
 const EditableHabitsPage = () => {
-  return (
-    <div>
-      <Editable />
-    </div>
-  );
+  return <Editable />;
 };
 
 export default EditableHabitsPage;

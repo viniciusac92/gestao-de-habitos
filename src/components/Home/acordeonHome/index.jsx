@@ -7,9 +7,12 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { IconButton } from "@material-ui/core";
 import FullScreenDialog from "./dialog";
 import { useGroup } from "../../../Providers/Group";
+import DirectionsIcon from "@material-ui/icons/Directions";
+import { useHistory } from "react-router-dom";
 
 const ActionsInAccordionSummary = ({ code }) => {
   const { goals } = useGroup();
+  const history = useHistory();
 
   return (
     <div>
@@ -52,15 +55,17 @@ const ActionsInAccordionSummary = ({ code }) => {
               onClick={(event) => event.stopPropagation()}
               onFocus={(event) => event.stopPropagation()}
               control={
-                <IconButton>
-                  Escolha
+                <IconButton onClick={() => history.push("/personal")}>
+                  <DirectionsIcon />
                 </IconButton>
               }
-              label="sua escolha"
+              label="Vá para a página de comunidades"
             />
           </AccordionSummary>
           <AccordionDetails>
-            <Typography color="textSecondary">Habitos editáveis</Typography>
+            <Typography color="textSecondary">
+              Metas e atividades editáveis
+            </Typography>
           </AccordionDetails>
         </Accordion>
       )}
