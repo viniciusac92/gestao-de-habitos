@@ -27,6 +27,7 @@ import {
 import {Box} from "@material-ui/core";
 import {Avatar} from "@material-ui/core";
 import {Card} from "@material-ui/core";
+import {PerfilButtonStyle} from "../styles";
 
 const useStyles = makeStyles((theme) => ({
 	appBar: {
@@ -52,17 +53,20 @@ const DialogMyGroupList = () => {
 	const [open, setOpen] = React.useState(false);
 
 	const handleClickOpen = () => {
-		setOpen(true);
+		setOpen(!open);
 	};
 
 	const handleClose = () => {
-		setOpen(false);
+		setOpen(!open);
 	};
 
 	return (
 		<div>
-			<Button variant="outlined" color="primary" onClick={handleClickOpen}>
-				Habits List
+			<Button
+				variant="outlined"
+				style={PerfilButtonStyle}
+				onClick={handleClickOpen}>
+				LISTAGEM DE USUARIOS DO SEU GRUPO
 			</Button>
 			<Dialog
 				fullScreen
