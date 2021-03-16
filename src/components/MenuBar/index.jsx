@@ -6,9 +6,9 @@ import {useState} from "react";
 import {ToolbarBox} from "./styles";
 import {D2DLogo} from "../../styles/D2DLogo";
 
-const MenuBar = ({isAuth, setIsAuth}) => {
-	const [anchorEl, setAnchorEl] = useState(null);
-	const history = useHistory();
+const MenuBar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const history = useHistory();
 
 	const sendTo = (path) => {
 		history.push(path);
@@ -18,11 +18,10 @@ const MenuBar = ({isAuth, setIsAuth}) => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleCloseApplication = () => {
-		sessionStorage.clear();
-		setIsAuth(false);
-		sendTo("/");
-	};
+  const handleCloseApplication = () => {
+    localStorage.clear();
+    sendTo("/");
+  };
 
 	const handleClose = () => {
 		setAnchorEl(null);

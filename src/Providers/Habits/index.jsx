@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import api from '../../Services'
+import api from "../../Services";
 
 const HabitsContext = createContext();
 
@@ -57,7 +57,7 @@ export const HabitsProvider = ({ children }) => {
       }
       api.patch(`/habits/${currentHabit.id}/`, data2)
         .then(() => setPersonHabits(false))
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
     }
   }
 

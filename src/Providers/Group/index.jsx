@@ -23,8 +23,8 @@ export const GroupProvider = ({children}) => {
         goals.length < response.data.goals.length && setGoals(response.data.goals)
         // handleAverage(response.data.activities)
       })
-      .catch((err) => console.log(err))
-  },[activities,goals]) 
+      .catch((err) => console.log(err));
+  }, [activities, goals]);
 
 	useEffect(() => {
 		api
