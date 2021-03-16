@@ -11,6 +11,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { useGroup } from '../../Providers/Group'
 import { Divider, ListItem } from "@material-ui/core";
+import GraphicGroup from '../DailyGroup'
+import { PerfilButtonStyle } from './styles'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -29,7 +31,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FullScreenDialogGroup() {
   const classes = useStyles();
 
-  const { goals } = useGroup()
+  const { sevenDays } = useGroup()
 
   const [open, setOpen] = React.useState(false);
 
@@ -43,9 +45,9 @@ export default function FullScreenDialogGroup() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        goals List
-      </Button>
+    <Button variant="contained" style={PerfilButtonStyle} onClick={handleClickOpen}>
+      ESTATÍSTICAS DO GRUPO
+    </Button>
       <Dialog
         fullScreen
         open={open}
@@ -68,9 +70,10 @@ export default function FullScreenDialogGroup() {
           </Toolbar>
         </AppBar>
         <List>
-            {goals && goals.map((item, i) => (
+            {sevenDays().map((day, i) => (
               <div>
                 <ListItem key={i}>
+                  <GraphicGroup day={day}/>
                 </ListItem>
                 <Divider />
               </div>
