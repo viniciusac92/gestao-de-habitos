@@ -6,6 +6,7 @@ import {
 	CardUser,
 	ListItemStyled,
 	DividerStyled,
+	LinearProgressStyled,
 } from "./styles";
 import {Box, LinearProgress, List} from "@material-ui/core";
 import {Avatar} from "@material-ui/core";
@@ -15,19 +16,13 @@ import {useProviderUser} from "../../Providers/User";
 import {useEffect} from "react";
 import {useState} from "react";
 
-const Groups = (props) => {
+const Groups = () => {
 	const {group} = useGroup();
 	const {userName} = useProviderUser();
-	const [progress, setProgress] = useState(10);
-
-	useEffect(() => {
-		setProgress((prevProgress) =>
-			prevProgress >= 100 ? 10 : prevProgress + 10
-		);
-	}, []);
 
 	console.log(group);
-	console.log(group?.users);
+	console.log(group && Object.entries(group.users).sort());
+
 	return (
 		<DivItems>
 			<DivPerfil>
@@ -50,14 +45,20 @@ const Groups = (props) => {
 					<div key={index}>
 						<List>
 							<ListItemStyled>
-								<TypographyStyled>{userProfile.username}</TypographyStyled>
+								<TypographyStyled>{`${userProfile.username} #${
+									index + 1
+								}`}</TypographyStyled>
 								<BoxStyled display="flex" alignItems="center">
-									<Box width="100%" mr={1}>
-										<LinearProgress variant="determinate" {...props} />
+									<Box width="150%" mr={1}>
+										<LinearProgressStyled
+											variant="determinate"
+											color="primary"
+											{...{value: `${group?.users[index].group}`}}
+										/>
 									</Box>
 									<Box minWidth={35}>
 										<TypographyStyled variant="body2">
-											{`${progress}%`}
+											{`${group?.users[index].group}%`}
 										</TypographyStyled>
 									</Box>
 								</BoxStyled>

@@ -6,12 +6,17 @@ import {
 	ListItem,
 	ListItemText,
 	Divider,
+	LinearProgress,
 } from "@material-ui/core";
 import {
 	currentColor3,
 	currentColor1,
 	neutralColor,
 } from "../../styles/globalStyles";
+
+export const LinearProgressStyled = styled(LinearProgress)`
+	height: 15px !important;
+`;
 
 export const DividerStyled = styled(Divider)`
 	background-color: rgb(253 250 250 / 56%);
