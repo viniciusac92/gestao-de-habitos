@@ -17,7 +17,7 @@ import {useProviderUser} from "../../Providers/User";
 const Groups = () => {
 	const {group} = useGroup();
 	const {userName} = useProviderUser();
-	console.log(group);
+
 	return (
 		<DivItems>
 			<DivPerfil>
@@ -26,7 +26,7 @@ const Groups = () => {
 						<img
 							alt="Banner Pic"
 							style={CardUser.banner}
-							src="https://source.unsplash.com/random/1200x350"
+							src="https://source.unsplash.com/random/300x150"
 						/>
 					</div>
 					<div style={CardUser.topProfile}>
@@ -46,19 +46,12 @@ const Groups = () => {
 										<TypographyStyled>{`${userProfile.username} #${
 											index + 1
 										}`}</TypographyStyled>
-
 										<BoxStyled display="flex" alignItems="center">
 											<Box width="150%" mr={1}>
 												<LinearProgressStyled
 													variant="determinate"
 													color="primary"
-													{...{
-														value: `${
-															group?.users[index].id > 100
-																? 100
-																: group?.users[index].id
-														}`,
-													}}
+													{...{value: `${group?.users[index].id}`}}
 												/>
 											</Box>
 											<Box minWidth={35}>

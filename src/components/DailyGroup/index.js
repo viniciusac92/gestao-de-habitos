@@ -1,40 +1,36 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import CustomizedProgressBars from "./progess";
-import api from "../../Services";
+import CustomizedProgressBars from './progres';
+import { useGroup } from '../../Providers/Group'
 
-const GraphicGroup = ({ id }) => {
-  const [media, setMedia] = useState(0);
-  const [startDate, setStartDate] = useState(0)
+const GraphicGroup = ({ day }) => {
 
-  const currentDate = new Date().getTime();
+  const { activities, group } = useGroup();
 
-  const handleMedia = (diffDays, points) => {
-    diffDays > 0 ? setMedia((points/diffDays)*100) : setMedia(points*100)
-  };
+  const filterActivities = activities.filter(act => new Date(act.realization_time).toLocaleDateString() === day)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const currentGoal = await api.get(`/goals/${id}/`);
-    //   const initialDate = new Date(JSON.parse(result.data.frequency).day0).getTime();
-      setTitle(currentGoal.data.title);
-    //   setStartDate(initialDate)
-      const points = currentGoal.data.how_much_achieved;
-    //   const diffDays = Math.floor((currentDate - initialDate) / (1000*60*60*24))
+  const qtdUsers = group.users.length
 
-      handleMedia(1, points);
-    };
-    fetchData();
-  }, []);
+  const qtdGoals = group.goals.length
 
-  const [title, setTitle] = useState("");
+  const average = Math.floor((filterActivities.length*100) / (qtdUsers*qtdGoals))
+
+  const arrayFrequency = []
+
+  filterActivities.forEach(element => {
+    const index = arrayFrequency.findIndex(e=>e.atividade===element.title)
+    if(index === -1) {
+      arrayFrequency.push({atividade: element.title, quantidade: 1})
+    }
+    else{
+      arrayFrequency[index].quantidade++
+    }
+  });
 
   return (
     <div>
-      {<h3>{title}</h3>}
-      <CustomizedProgressBars xp={media} />
+      {<h3>{day}</h3>}
+      <CustomizedProgressBars xp={average} porcent={average}/> 
       <br></br>
-      <p>Obtenha 100pts diários para manter um aproveitamento de 100%</p>
+      {arrayFrequency.map(register=><p>{register.atividade}: {register.quantidade}</p>)}
     </div>
   );
 };

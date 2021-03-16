@@ -11,10 +11,20 @@ export const GroupProvider = ({children}) => {
 			.catch((err) => console.log(err));
 	});
 
-	const [activities, setActivities] = useState([]);
-	const [goals, setGoals] = useState([]);
-	// const [group, setGroup] = useState([]);
-	const [average, setAverage] = useState({});
+  const [activities, setActivities] = useState([])
+  const [goals, setGoals] = useState([])
+  const [average, setAverage] = useState({})
+    
+  useEffect(()=>{
+    api.get("/groups/26/")
+      .then((response) => {
+        setGroup(response.data)
+        activities.length < response.data.activities.length && setActivities(response.data.activities)
+        goals.length < response.data.goals.length && setGoals(response.data.goals)
+        // handleAverage(response.data.activities)
+      })
+      .catch((err) => console.log(err))
+  },[activities,goals]) 
 
 	useEffect(() => {
 		api
@@ -43,6 +53,14 @@ export const GroupProvider = ({children}) => {
 			.catch((err) => console.log(err));
 	};
 
+  const sevenDays = () => {
+    const array = []
+    for(let i = 0; i < 7; i++) {
+      array.push(new Date(new Date().getTime() - (86400000*i)).toLocaleDateString())
+    }
+    return array
+  }
+
 	const handleActivities = (title) => {
 		const data = {
 			title: title,
@@ -65,22 +83,13 @@ export const GroupProvider = ({children}) => {
 			} else averageObj[e.realization_time.substring(0, 10)].push(e.title);
 		});
 		setAverage(averageObj);
-		console.log(average);
 	};
 
-	return (
-		<GroupContext.Provider
-			value={{
-				group,
-				goals,
-				activities,
-				average,
-				handleGoals,
-				handleActivities,
-			}}>
-			{children}
-		</GroupContext.Provider>
-	);
+  return (
+    <GroupContext.Provider value={{ group, goals, activities, sevenDays, handleGoals, handleActivities }}>
+      {children}
+    </GroupContext.Provider>
+  );
 };
 
 export const useGroup = () => useContext(GroupContext);

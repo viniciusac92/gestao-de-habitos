@@ -12,6 +12,7 @@ import Slide from "@material-ui/core/Slide";
 import { useHabits } from '../../Providers/Habits'
 import { Divider, ListItem } from "@material-ui/core";
 import Graphic from '../DailyHabit'
+import { PerfilButtonStyle } from './styles'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -44,8 +45,8 @@ export default function FullScreenDialog() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Habits List
+      <Button variant="contained" style={PerfilButtonStyle} onClick={handleClickOpen}>
+        ESTATÍSTICAS DE USUÁRIO 
       </Button>
       <Dialog
         fullScreen
