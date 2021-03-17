@@ -50,11 +50,10 @@ export default function FullScreenDialog({ title }) {
   };
 
   const createActions = () => {
-    // handleActivities(title);
-    // alert(title)
+    handleActivities(title);
     handleHabit(title, new Date());
-    // handleGoals(title);
-    handleClose()
+    handleGoals(title);
+    handleClose();
   };
 
   return (
