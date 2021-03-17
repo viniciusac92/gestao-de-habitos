@@ -103,7 +103,7 @@ export const HighlightCardDemo = React.memo(function HighlightCard() {
             title={
               <>
                 <br></br>
-                Trilha Codar
+                Trilha de Programação
               </>
             }
           />
@@ -121,7 +121,7 @@ export const HighlightCardDemo = React.memo(function HighlightCard() {
             title={
               <>
                 <br></br>
-                Trilha Editável
+                Grupos da Comunidade
               </>
             }
           />

@@ -19,8 +19,7 @@ const ActionsInAccordionSummary = ({ code }) => {
       {code !== null ? (
         goals.map((goal) => (
           <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+            <AccordionSummary              
               aria-label="Expand"
               aria-controls="additional-actions1-content"
             >
@@ -36,11 +35,6 @@ const ActionsInAccordionSummary = ({ code }) => {
                 label={goal.title}
               />
             </AccordionSummary>
-            <AccordionDetails>
-              <Typography color="textSecondary">
-                Dicas: dica relacionada ao goal em questão
-              </Typography>
-            </AccordionDetails>
           </Accordion>
         ))
       ) : (
