@@ -12,6 +12,7 @@ import { useHabits } from "../../../Providers/Habits";
 import { useGroup } from "../../../Providers/Group";
 import CircularTimer from "../../CircularTimer/index";
 import { appBarStyle, titleStyle, modalStyle, buttonStyle } from "./style";
+import { usePersonalGroups } from "../../../Providers/ListGroups";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,6 +28,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FullScreenDialog({ title }) {
   const classes = useStyles();
 
+  const {handleSubscribe} = usePersonalGroups()
+
   const { handleActivities, handleGoals } = useGroup();
 
   const { handleHabit, averageHabits } = useHabits();
@@ -37,7 +40,8 @@ export default function FullScreenDialog({ title }) {
     timeChosen: 10,
   });
 
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
+    await handleSubscribe(26)
     setOpen(true);
   };
 
