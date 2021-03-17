@@ -4,20 +4,23 @@ import { HabitsProvider } from "./Habits";
 import { ListGroupsProvider } from "./ListGroups";
 import { PersonalProvider } from "./PersonalActivities";
 import { ActivitiesGoalsProvider } from "./ListActivitiesGoals";
+import { ColorSchemeProvider } from "./ColorScheme";
 
 const Providers = ({ children }) => {
   return (
-    <HabitsProvider>
-      <ListGroupsProvider>
-        <ActivitiesGoalsProvider>
-          <PersonalProvider>
-            <GroupProvider>
-              <UserProvider>{children}</UserProvider>
-            </GroupProvider>
-          </PersonalProvider>
-        </ActivitiesGoalsProvider>
-      </ListGroupsProvider>
-    </HabitsProvider>
+    <ColorSchemeProvider>
+      <HabitsProvider>
+        <ListGroupsProvider>
+          <ActivitiesGoalsProvider>
+            <PersonalProvider>
+              <GroupProvider>
+                <UserProvider>{children}</UserProvider>
+              </GroupProvider>
+            </PersonalProvider>
+          </ActivitiesGoalsProvider>
+        </ListGroupsProvider>
+      </HabitsProvider>
+    </ColorSchemeProvider>
   );
 };
 
