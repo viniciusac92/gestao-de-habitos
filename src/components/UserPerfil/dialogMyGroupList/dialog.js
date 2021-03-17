@@ -30,67 +30,67 @@ import {Card} from "@material-ui/core";
 import {PerfilButtonStyle} from "../styles";
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
+	appBar: {
+		position: "relative",
+	},
+	title: {
+		marginLeft: theme.spacing(2),
+		flex: 1,
+	},
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+	return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function FullScreenDialogUsers() {
-  const classes = useStyles();
-
+	const classes = useStyles();
 
 	const {group} = useGroup();
 
 	const {userName} = useProviderUser();
 
-  const { personHabits } = useHabits()
+	const {personHabits} = useHabits();
 
-  const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+	const handleClose = () => {
+		setOpen(false);
+	};
 
-  return (
-    <div>
-      <Button variant="contained" style={PerfilButtonStyle} onClick={handleClickOpen}>
-        ESTATÍSTICAS DE USUÁRIO 
-      </Button>
-      <Dialog
-        fullScreen
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-      >
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Habits
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <List>
-          {group &&
+	return (
+		<div>
+			<Button
+				variant="contained"
+				style={PerfilButtonStyle}
+				onClick={handleClickOpen}>
+				ESTATÍSTICAS DE USUÁRIO
+			</Button>
+			<Dialog
+				fullScreen
+				open={open}
+				onClose={handleClose}
+				TransitionComponent={Transition}>
+				<AppBar className={classes.appBar}>
+					<Toolbar>
+						<IconButton
+							edge="start"
+							color="inherit"
+							onClick={handleClose}
+							aria-label="close">
+							<CloseIcon />
+						</IconButton>
+						<Typography variant="h6" className={classes.title}>
+							Habits
+						</Typography>
+					</Toolbar>
+				</AppBar>
+				<List>
+					{group &&
 						group.users
 							.sort((a, b) => (a.id > b.id ? -1 : 1))
 							.map((userProfile, index) => {
@@ -109,16 +109,16 @@ export default function FullScreenDialogUsers() {
 															color="primary"
 															{...{
 																value: `${
-																	group?.users[index].id > 100
+																	group?.users[index].id / 10 > 100
 																		? 100
-																		: group?.users[index].id
+																		: group?.users[index].id / 10
 																}`,
 															}}
 														/>
 													</Box>
 													<Box minWidth={35}>
 														<TypographyStyled variant="body2">
-															{`${group?.users[index].id}%`}
+															{`${group?.users[index].id / 10}%`}
 														</TypographyStyled>
 													</Box>
 												</BoxStyled>
@@ -129,8 +129,8 @@ export default function FullScreenDialogUsers() {
 									</div>
 								);
 							})}
-        </List>
-      </Dialog>
-    </div>
-  );
+				</List>
+			</Dialog>
+		</div>
+	);
 }
