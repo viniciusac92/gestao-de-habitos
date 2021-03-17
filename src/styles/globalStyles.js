@@ -1,5 +1,16 @@
 export const neutralColor = "#CCCCCC";
 
+if (!localStorage.getItem("@habitos/colorSchemes")) {
+  localStorage.setItem(
+    "@habitos/colorSchemes",
+    JSON.stringify({
+      currentColor1: "#0F0F0F",
+      currentColor2: "#282C34",
+      currentColor3: "#7A1FA5",
+    })
+  );
+}
+
 const colorSchemes = JSON.parse(localStorage.getItem("@habitos/colorSchemes"));
 
 export let currentColor1 = colorSchemes.currentColor1;
