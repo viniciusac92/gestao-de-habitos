@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { currentColor1, currentColor3 } from "../../styles/globalStyles";
 
 export const loginCardStyle = {

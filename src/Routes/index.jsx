@@ -5,7 +5,6 @@ import RegisterPage from "../pages/RegisterPage";
 import UserPerfilPage from "../pages/UserPerfilPage";
 import HomePage from "../pages/HomePage";
 import TrailPage from "../pages/TrailPage";
-import GroupsPage from "../pages/GroupsPage";
 import Route from "./route";
 import NotFound from "../pages/NotFoundPage";
 import EditableHabitsPage from "../pages/EditableHabitsPage";
@@ -17,11 +16,8 @@ const Routes = () => {
         <Route exact path="/" component={LoginPage} />
         <Route path="/home" component={HomePage} isPrivate />
         <Route path="/register" component={RegisterPage} />
-        <Route path="/profile" component={UserPerfilPage} isPrivate />
-        <Route path="/groups" component={GroupsPage} isPrivate />
-        <Route path="/trail" component={TrailPage} isPrivate>
-          <TrailPage />
-        </Route>
+        <Route path="/profile" component={UserPerfilPage} isPrivate />        
+        <Route path="/trail" component={TrailPage} isPrivate />                  
         <Route path="/personal" component={EditableHabitsPage} isPrivate />
         <Route component={NotFound} />
       </Switch>

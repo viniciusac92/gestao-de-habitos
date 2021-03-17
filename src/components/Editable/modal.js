@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { usePersonalGroups } from "../../Providers/ListGroups";
-import { useProviderUser } from "../../Providers/User";
 import { useListActivitiesGoals } from "../../Providers/ListActivitiesGoals";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +30,6 @@ export default function PersonalDialog() {
   const [open, setOpen] = React.useState(false);
   const { groups, handleAdd, handleSub, handleSubscribe, counter } =
     usePersonalGroups() || "";
-  const { group } = useProviderUser();
   const { change, setChange } = useListActivitiesGoals();
 
   const handleClickOpen = () => {

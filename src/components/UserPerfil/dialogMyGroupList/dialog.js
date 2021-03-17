@@ -9,24 +9,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import {useHabits} from "../../../Providers/Habits";
-import {Divider, ListItem} from "@material-ui/core";
-import Graphic from "../../DailyHabit";
 import {useGroup} from "../../../Providers/Group";
-import {useProviderUser} from "../../../Providers/User";
 import {
-	DivItems,
-	DivPerfil,
 	BoxStyled,
-	TypographyStyled,
-	CardUser,
+	TypographyStyled,	
 	ListItemStyled,
 	DividerStyled,
 	LinearProgressStyled,
 } from "./styles";
 import {Box} from "@material-ui/core";
-import {Avatar} from "@material-ui/core";
-import {Card} from "@material-ui/core";
 import {PerfilButtonStyle} from "../styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,11 +37,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FullScreenDialogUsers() {
 	const classes = useStyles();
 
-	const {group} = useGroup();
-
-	const {userName} = useProviderUser();
-
-	const {personHabits} = useHabits();
+	const {group} = useGroup();	
 
 	const [open, setOpen] = React.useState(false);
 

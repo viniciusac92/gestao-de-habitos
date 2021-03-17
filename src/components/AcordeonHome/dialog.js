@@ -8,11 +8,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from "../../../Providers/Habits";
-import { useGroup } from "../../../Providers/Group";
-import CircularTimer from "../../CircularTimer/index";
+import { useHabits } from "../../Providers/Habits";
+import { useGroup } from "../../Providers/Group";
+import CircularTimer from "../CircularTimer/index";
 import { appBarStyle, titleStyle, modalStyle, buttonStyle } from "./style";
-import { usePersonalGroups } from "../../../Providers/ListGroups";
+import { usePersonalGroups } from "../../Providers/ListGroups";
 
 const useStyles = makeStyles((theme) => ({
   title: {

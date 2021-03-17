@@ -59,11 +59,9 @@ const MenuBar = () => {
           open={open}
           onClose={handleClose}
         >
+          <MenuItem onClick={() => sendTo("/home")}>Home</MenuItem>
           <MenuItem onClick={() => sendTo("/profile")}>Perfil</MenuItem>
-          <MenuItem onClick={() => sendTo("/groups")}>Grupo</MenuItem>
-          <MenuItem onClick={() => sendTo("/trail")}>Trilha</MenuItem>
-          <MenuItem onClick={() => sendTo("/desempenho")}>Desempenho</MenuItem>
-          <MenuItem onClick={() => sendTo("/users")}>Usuários</MenuItem>
+          <MenuItem onClick={() => sendTo("/trail")}>Trilha</MenuItem>                    
           <MenuItem onClick={handleCloseApplication}>Sair</MenuItem>
         </Menu>
       </ToolbarBox>

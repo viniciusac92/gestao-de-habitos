@@ -121,7 +121,7 @@ export const HighlightCardDemo = React.memo(function HighlightCard() {
             title={
               <>
                 <br></br>
-                Trilha Teórica
+                Trilha Editável
               </>
             }
           />

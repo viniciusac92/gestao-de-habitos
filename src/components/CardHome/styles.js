@@ -1,9 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import Color from "color";
 import {
-  currentColor3,
-  currentColor2,
   currentColor1,
+  currentColor2,
+  currentColor3,
 } from "../../styles/globalStyles";
 
 export const useGridStyles = makeStyles(({ breakpoints }) => ({
@@ -22,7 +21,7 @@ export const useGridStyles = makeStyles(({ breakpoints }) => ({
 export const useStyles = makeStyles(({ palette, breakpoints }) => ({
   color: ({ color }: { color: string }) => ({
     "&:before": {
-      backgroundColor: Color(color).darken(0.3).desaturate(0.2).toString(),
+      backgroundColor: currentColor1,
     },
   }),
   root: {
@@ -45,20 +44,19 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
       },
       "& $logo": {
         transform: "scale(1.1)",
-        boxShadow: "0 6px 20px 0 rgba(0,0,0,0.38)",
+        boxShadow: `4px 4px 10px 0 ${currentColor3}`,
       },
     },
   },
   cover: {
     borderRadius: "1rem",
-    width: "99%",
-    height: "99%",
+    width: "99.9%",
   },
-  content: () => ({
+  content: ({ color }: { color: string }) => ({
     position: "relative",
     zIndex: 1,
     borderRadius: "1rem",
-    boxShadow: `4px 4px 10px 0 ${currentColor3}`,
+    boxShadow: `4px 4px 8px 0 ${currentColor3}`,
     "&:before": {
       content: '""',
       display: "block",
@@ -94,7 +92,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
     transition: "0.3s",
     width: 100,
     height: 100,
-    boxShadow: `0 4px 28px 0 ${currentColor3}`,
+    boxShadow: `1px 1px 4px 0 ${currentColor3}`,
     borderRadius: "1rem",
     [breakpoints.down("sm")]: {
       width: 50,
