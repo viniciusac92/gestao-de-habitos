@@ -31,7 +31,7 @@ export default function ActivitiesModal() {
   return (
     <div style={groupsWrapperStyle}>
       <Button variant="contained" style={buttonStyle} onClick={handleClickOpen}>
-        Se inspire em metas criadas pela comunidade
+        Se inspire em atividades criadas pela comunidade
       </Button>
 
       <Dialog
