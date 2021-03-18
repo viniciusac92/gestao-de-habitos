@@ -14,7 +14,7 @@ import { FullScreenDialogModal } from "./modal";
 const UserPerfil = () => {
   const history = useHistory();
 
-  const { userName, handleChangeUserName } = useProviderUser();
+  const { userName } = useProviderUser();
 
   return (
     <DivPerfil>

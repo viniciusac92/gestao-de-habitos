@@ -43,18 +43,7 @@ export const DivStyled = styled.div`
   flex-direction: row;
 `;
 
-export const DivPerfil = styled.div`
-  /* display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
-	height: 100vh;
-
-	@media (max-width: 600px) {
-		flex-direction: column;
-	} */
-`;
+export const DivPerfil = styled.div``;
 
 export const CardUser = {
   root: {
@@ -107,13 +96,10 @@ export const TypographyStyled = styled(Typography)`
 `;
 
 export const BoxStyled = styled(Box)`
-  /* flex-direction: column !important; */
   width: 100%;
 `;
 
-export const AccordionSummaryStyled = styled(AccordionSummary)`
-  /* flex-direction: column !important; */
-`;
+export const AccordionSummaryStyled = styled(AccordionSummary)``;
 
 export const DivItems = styled.div`
   width: 60%;

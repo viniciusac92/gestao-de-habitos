@@ -52,17 +52,12 @@ export const FullScreenDialogModal = () => {
     setOpen(false);
   };
 
-  const { userName, handleChangeUserName } = useProviderUser();
+  const { handleChangeUserName } = useProviderUser();
   const [inputText, setInputText] = useState("");
 
-  console.log(userName);
-
   const userEdit = () => {
-    console.log(inputText);
-
     handleChangeUserName(inputText);
-
-    alert("Usuário Alterado");
+    setOpen(false);
   };
 
   return (

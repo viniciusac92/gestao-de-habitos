@@ -6,7 +6,7 @@ const PersonalContext = createContext();
 export const PersonalProvider = ({ children }) => {
   const [activities, setActivities] = useState();
   const [goalsGroup, setGoalsGroup] = useState();
-  const [random, setRandom] = useState();
+  const [random,setRandom] = useState();
 
   function getRandomInt() {
     const min = Math.ceil(1);

@@ -13,7 +13,7 @@ export const GroupProvider = ({ children }) => {
 
   const [activities, setActivities] = useState([]);
   const [goals, setGoals] = useState([]);
-  const [average, setAverage] = useState({});
+  const [ setAverage] = useState({});
 
   useEffect(() => {
     api

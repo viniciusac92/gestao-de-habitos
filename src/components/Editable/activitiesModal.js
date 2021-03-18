@@ -16,9 +16,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function GoalsModal() {
-  const { goalsGroup } = usePersonal() || [];
+export default function ActivitiesModal() {
   const [open, setOpen] = useState(false);
+  const { activities } = usePersonal() || [];
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -51,12 +51,12 @@ export default function GoalsModal() {
               >
                 <CloseIcon />
               </IconButton>
-              <Typography variant="h6">Metas da comunidade</Typography>
+              <Typography variant="h6">Atividades da comunidade</Typography>
             </Toolbar>
           </AppBar>
           <div style={comunityGoalsWrapperStyle}>
-            {goalsGroup &&
-              goalsGroup.map((item, i) => <h4 key={i}>{item.title}</h4>)}
+            {activities &&
+              activities.map((item, i) => <p key={i}>{item.title}</p>)}
           </div>
         </div>
       </Dialog>

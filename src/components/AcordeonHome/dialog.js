@@ -14,25 +14,16 @@ import CircularTimer from "../CircularTimer/index";
 import { appBarStyle, titleStyle, modalStyle, buttonStyle } from "./style";
 import { usePersonalGroups } from "../../Providers/ListGroups";
 
-const useStyles = makeStyles((theme) => ({
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-}));
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function FullScreenDialog({ title }) {
-  const classes = useStyles();
-
   const { handleSubscribe } = usePersonalGroups();
 
   const { handleActivities, handleGoals } = useGroup();
 
-  const { handleHabit, averageHabits } = useHabits();
+  const { handleHabit } = useHabits();
 
   const [open, setOpen] = React.useState(false);
   const [timer, setTimer] = React.useState({

@@ -36,7 +36,7 @@ const LoginForm = () => {
         <TextField
           style={textAreaStyle}
           margin="normal"
-          variant="outlined"
+          variant="filled"
           label="Usuário"
           name="username"
           size="small"
@@ -50,7 +50,7 @@ const LoginForm = () => {
         <TextField
           style={textAreaStyle}
           margin="normal"
-          variant="outlined"
+          variant="filled"
           label="Senha"
           name="password"
           type="password"

@@ -1,6 +1,5 @@
-import { IconButton, List, ListItem, Button } from "@material-ui/core";
+import { IconButton, List, ListItem } from "@material-ui/core";
 import { useListActivitiesGoals } from "../../Providers/ListActivitiesGoals";
-import { usePersonal } from "../../Providers/PersonalActivities";
 import PersonalDialog from "./modal";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import FormDialog from "./dialog";
@@ -8,9 +7,9 @@ import { useProviderUser } from "../../Providers/User";
 import { DivGoalActivities, personalWrapperStyle } from "./styles";
 import MenuBar from "../../components/MenuBar";
 import GoalsModal from "./goalsModal";
+import ActivitiesModal from "./activitiesModal";
 
 const Editable = () => {
-  const { activities } = usePersonal() || [];
   const { group } = useProviderUser();
   const { activitiesGroup, goals, handleActivieDelete, handleGoalDelete } =
     useListActivitiesGoals() || [];
@@ -109,10 +108,7 @@ const Editable = () => {
 
             <FormDialog present={"activitie"} />
 
-            <h4>Se inspire em atividades criadas pela comunidade</h4>
-
-            {activities &&
-              activities.map((item, i) => <p key={i}>{item.title}</p>)}
+            <ActivitiesModal />
           </DivGoalActivities>
         </div>
       )}

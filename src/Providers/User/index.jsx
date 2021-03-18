@@ -2,8 +2,6 @@ import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 import api from "../../Services";
 import jwt_decode from "jwt-decode";
-import axios from "axios";
-import { usePersonalGroups } from "../ListGroups";
 
 export const UserContext = createContext();
 
@@ -11,7 +9,6 @@ export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [error, setError] = useState(false);
   const [group, setGroup] = useState();
-  const { handleSubscribe } = usePersonalGroups();
 
   useEffect(() => {
     api.get(`/users/${JSON.parse(localStorage.getItem("id"))}/`).then((res) => {
@@ -29,13 +26,6 @@ export const UserProvider = ({ children }) => {
       .then(() => setError(false))
       .catch((e) => setError(true));
   };
-  // const group = await axios.get(
-  //   `https://kabit-api.herokuapp.com/users/${id}/`,
-  //   {
-  //     Authorization: `Bearer ${result.data.access} `,
-  //   }
-  // );
-  // const groupId = JSON.stringify(group.data.group);
 
   const login = (userData, setError, history, reset) => {
     const fetchData = async () => {

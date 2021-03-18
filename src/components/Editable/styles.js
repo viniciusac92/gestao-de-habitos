@@ -42,14 +42,16 @@ export const groupsWrapperStyle = {
   alignItems: "center",
   justifyContent: "space-around",
   marginBottom: "8vh",
+  fontSize: "1.5rem",
 };
 export const comunityGoalsWrapperStyle = {
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
+  alignItems: "flex-start",
   height: "80vh",
   justifyContent: "space-around",
   marginBottom: "8vh",
+  margin: "3%",
 };
 
 export const personalWrapperStyle = {
