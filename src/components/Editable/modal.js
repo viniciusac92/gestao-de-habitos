@@ -70,18 +70,21 @@ export default function PersonalDialog() {
           </AppBar>
           <div style={groupsWrapperStyle}>
             {groups !== "" &&
-              groups.map((item, i) => (
-                <div style={itemWrapperStyle} key={i}>
-                  <h4>{item.name}</h4>
-                  <Button
-                    style={simpleButtonStyle}
-                    variant="contained"
-                    onClick={() => handleCloseSubscribe(item.id)}
-                  >
-                    Inscreva-se
-                  </Button>
-                </div>
-              ))}
+              groups.map(
+                (item, i) =>
+                  item.id !== 26 && (
+                    <div style={itemWrapperStyle} key={i}>
+                      <h4>{item.name}</h4>
+                      <Button
+                        style={simpleButtonStyle}
+                        variant="contained"
+                        onClick={() => handleCloseSubscribe(item.id)}
+                      >
+                        Inscreva-se
+                      </Button>
+                    </div>
+                  )
+              )}
           </div>
         </div>
         {counter < 9 && (

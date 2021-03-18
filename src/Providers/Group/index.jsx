@@ -10,6 +10,14 @@ export const GroupProvider = ({ children }) => {
       .catch((err) => console.log(err));
   });
 
+export const GroupProvider = ({ children }) => {
+  const [group, setGroup] = useState(() => {
+    api
+      .get("/groups/26/")
+      .then((response) => setGroup(response.data))
+      .catch((err) => console.log(err));
+  });
+
   const [activities, setActivities] = useState([]);
   const [goals, setGoals] = useState([]);
   const [average, setAverage] = useState({});
