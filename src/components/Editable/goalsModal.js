@@ -1,26 +1,24 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import List from "@material-ui/core/List";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from "../../Providers/Habits";
-import { Divider, ListItem } from "@material-ui/core";
-import Graphic from "../DailyHabit";
-import { PerfilButtonStyle, appBar, modalWarpStyle } from "./styles";
+import { appBar, buttonStyle, modalWarpStyle } from "../UserPerfil/styles";
+import { groupsWrapperStyle, comunityGoalsWrapperStyle } from "./styles";
+import { usePersonal } from "../../Providers/PersonalActivities";
+import { useState } from "react";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog() {
-  const { personHabits } = useHabits();
-
-  const [open, setOpen] = React.useState(false);
+export default function GoalsModal() {
+  const { goalsGroup } = usePersonal() || [];
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -31,14 +29,11 @@ export default function FullScreenDialog() {
   };
 
   return (
-    <div>
-      <Button
-        variant="contained"
-        style={PerfilButtonStyle}
-        onClick={handleClickOpen}
-      >
-        SEUS HÁBITOS
+    <div style={groupsWrapperStyle}>
+      <Button variant="contained" style={buttonStyle} onClick={handleClickOpen}>
+        Se inspire em metas criadas pela comunidade
       </Button>
+
       <Dialog
         fullScreen
         open={open}
@@ -56,20 +51,13 @@ export default function FullScreenDialog() {
               >
                 <CloseIcon />
               </IconButton>
-              <Typography variant="h6">Hábitos</Typography>
+              <Typography variant="h6">Todas as metas da comunidade</Typography>
             </Toolbar>
           </AppBar>
-          <List>
-            {personHabits &&
-              personHabits.map((item, i) => (
-                <div>
-                  <ListItem key={i}>
-                    <Graphic id={item.id} />
-                  </ListItem>
-                  <Divider />
-                </div>
-              ))}
-          </List>
+          <div style={comunityGoalsWrapperStyle}>
+            {goalsGroup &&
+              goalsGroup.map((item, i) => <h4 key={i}>{item.title}</h4>)}
+          </div>
         </div>
       </Dialog>
     </div>

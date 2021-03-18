@@ -1,19 +1,28 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import {
+  currentColor1,
+  currentColor3,
+  neutralColor,
+} from "../../styles/globalStyles";
 
 const BorderLinearProgress = withStyles((theme) => ({
   root: {
     height: 10,
     borderRadius: 5,
+    width: 250,
+    marginRight: "20px",
+    boxShadow: `2px 2px 4px ${currentColor3}`,
+    marginBottom: "15px",
   },
   colorPrimary: {
-    backgroundColor:
-      theme.palette.grey[theme.palette.type === "light" ? 200 : 700],
+    backgroundColor: neutralColor,
   },
   bar: {
+    boxShadow: `2px 2px 12px ${currentColor3}`,
     borderRadius: 5,
-    backgroundColor: "#1a90ff",
+    backgroundColor: currentColor1,
   },
 }))(LinearProgress);
 

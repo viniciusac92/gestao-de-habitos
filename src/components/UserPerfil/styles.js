@@ -2,14 +2,38 @@ import { Card, CardMedia } from "@material-ui/core";
 import styled from "styled-components";
 import {
   currentColor3,
+  currentColor2,
   currentColor1,
   neutralColor,
 } from "../../styles/globalStyles";
 
+export const modalWarpStyle = {
+  backgroundColor: currentColor2,
+  color: currentColor1,
+  display: "flex",
+  flexDirection: "column",
+  height: "5000px",
+};
+
+export const buttonStyle = {
+  backgroundColor: currentColor1,
+  color: neutralColor,
+  boxShadow: `2px 2px 8px ${currentColor3}`,
+  marginTop: "30px",
+};
+
+export const appBar = {
+  backgroundColor: currentColor1,
+  color: neutralColor,
+  position: "relative",
+  boxShadow: `2px 2px 8px ${currentColor3}`,
+};
+
 export const PerfilButtonStyle = {
   backgroundColor: currentColor1,
   color: neutralColor,
-  width: "80%",
+  width: "300px",
+  height: "65px",
   margin: "25px",
   boxShadow: `2px 2px 8px ${currentColor3}`,
 };
@@ -18,7 +42,7 @@ export const CardUser = {
   root: {
     marginTop: "5%",
     width: "300px",
-    height: "600px",
+    height: "300px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -55,6 +79,8 @@ export const CardUser = {
     color: neutralColor,
     margin: "5px",
     maxWidth: "285px",
+    display: "flex",
+    alignItems: "center",
   },
 };
 

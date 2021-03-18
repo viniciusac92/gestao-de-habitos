@@ -6,8 +6,11 @@ import FullScreenDialog from "./dialog";
 import FullScreenDialogGroup from "./dialogGroup";
 import FullScreenUsers from "./dialogMyGroupList/dialog";
 import ConfigDialog from "./dialogConfig";
+import TimelineIcon from "@material-ui/icons/Timeline";
+import { useHistory } from "react-router-dom";
 
 const UserPerfil = () => {
+  const history = useHistory();
   return (
     <DivPerfil>
       <Card style={CardUser.root} elevation={20}>
@@ -20,7 +23,16 @@ const UserPerfil = () => {
         </div>
         <div style={CardUser.topProfile}>
           <Avatar variant="rounded" style={CardUser.avatar} />
-          <h3 style={CardUser.userName}>Username</h3>
+          <h3 style={CardUser.userName}>
+            Username
+            <Button
+              onClick={() => {
+                history.push("/trail");
+              }}
+            >
+              <TimelineIcon style={{ color: "#CCC" }} />
+            </Button>
+          </h3>
         </div>
       </Card>
 

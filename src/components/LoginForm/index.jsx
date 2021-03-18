@@ -5,11 +5,11 @@ import { Button, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { SpanError, textAreaStyle, buttonStyle, CardLogin } from "./styled";
-import { useProviderUser } from '../../Providers/User'
+import { useProviderUser } from "../../Providers/User";
+import { neutralColor } from "../../styles/globalStyles";
 
 const LoginForm = () => {
-
-  const { login } = useProviderUser()
+  const { login } = useProviderUser();
 
   const [error, setError] = useState(false);
   const history = useHistory();
@@ -27,9 +27,7 @@ const LoginForm = () => {
   });
 
   const onSubmit = (userData) => {
-
-    login(userData, setError, history, reset)
-
+    login(userData, setError, history, reset);
   };
 
   return (
@@ -69,7 +67,10 @@ const LoginForm = () => {
         </Button>
       </div>
       <div>
-        <Button onClick={() => history.push("/register")} color="primary">
+        <Button
+          onClick={() => history.push("/register")}
+          style={{ color: neutralColor }}
+        >
           Cadastre-se
         </Button>
       </div>

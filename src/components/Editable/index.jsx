@@ -1,39 +1,29 @@
-import { IconButton, List, ListItem } from "@material-ui/core";
+import { IconButton, List, ListItem, Button } from "@material-ui/core";
 import { useListActivitiesGoals } from "../../Providers/ListActivitiesGoals";
 import { usePersonal } from "../../Providers/PersonalActivities";
 import PersonalDialog from "./modal";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import FormDialog from "./dialog";
 import { useProviderUser } from "../../Providers/User";
-import { DivGoalActivities } from "./styles";
+import { DivGoalActivities, personalWrapperStyle } from "./styles";
+import MenuBar from "../../components/MenuBar";
+import GoalsModal from "./goalsModal";
 
 const Editable = () => {
   const { activities, goalsGroup } = usePersonal() || [];
   const { group } = useProviderUser();
-  const {
-    activitiesGroup,
-    goals,
-    title,
-    handleActivieDelete,
-    handleGoalDelete,
-  } = useListActivitiesGoals() || [];
+  const { activitiesGroup, goals, handleActivieDelete, handleGoalDelete } =
+    useListActivitiesGoals() || [];
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <h2>Create your Habits</h2>
+    <div style={personalWrapperStyle}>
+      <MenuBar />
+      <h2 style={{ marginTop: "100px" }}>Comunidade</h2>
 
       <PersonalDialog />
 
       {group !== null && (
-        <div>
-          <p>{title}</p>
-
+        <div style={personalWrapperStyle}>
           <DivGoalActivities>
             <h3>Metas do grupo</h3>
 
@@ -43,10 +33,10 @@ const Editable = () => {
               {goals &&
                 goals.map((item, i) => (
                   <ListItem key={i}>
-                    {item.title}{" "}
+                    {item.title}
                     <IconButton onClick={() => handleGoalDelete(item.id)}>
                       <DeleteForeverIcon />
-                    </IconButton>{" "}
+                    </IconButton>
                     <FormDialog edit={"meta"} id={item.id} />
                   </ListItem>
                 ))}
@@ -54,10 +44,7 @@ const Editable = () => {
 
             <FormDialog present={"goal"} />
 
-            <h4>Se inspire em metas criadas pela comunidade</h4>
-
-            {goalsGroup &&
-              goalsGroup.map((item, i) => <p key={i}>{item.title}</p>)}
+            <GoalsModal />
           </DivGoalActivities>
 
           <DivGoalActivities>
@@ -70,7 +57,7 @@ const Editable = () => {
                 {activitiesGroup &&
                   activitiesGroup.map((item, i) => (
                     <ListItem key={i}>
-                      {item.title}{" "}
+                      {item.title}
                       <IconButton onClick={() => handleActivieDelete(item.id)}>
                         <DeleteForeverIcon />
                       </IconButton>
