@@ -113,7 +113,7 @@ export const HighlightCardDemo = React.memo(function HighlightCard() {
             code={null}
             styles={styles2}
             cover={
-              "https://workingnation.com/wp-content/uploads/2018/04/shutterstock_459867970.jpg"
+              "https://morgridge.du.edu/wp-content/uploads/2019/07/Community-Support-Services-1-1024x576.jpg"
             }
             logo={
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz4uMMIweU1SgPJOlJwOmITkUvL8gm34_fZw&usqp=CAU"

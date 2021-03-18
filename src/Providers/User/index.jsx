@@ -54,7 +54,7 @@ export const UserProvider = ({ children }) => {
       reset();
       history.push("/home");
     };
-    fetchData();
+    fetchData().catch((e) => setError(true));
   };
 
   return (
