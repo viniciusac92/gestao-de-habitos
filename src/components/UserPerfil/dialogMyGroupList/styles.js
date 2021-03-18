@@ -18,7 +18,7 @@ export const LinearProgressStyled = styled(LinearProgress)`
   height: 15px !important;
   background-color: ${neutralColor};
   border-radius: 8px;
-  box-shadow: ${`2px 2px 8px ${currentColor3}`};
+  box-shadow: ${`2px 2px 0 ${currentColor3}`};
   & > div {
     background-color: ${currentColor1};
   }
@@ -65,7 +65,7 @@ export const CardUser = {
     justifyContent: "start",
     alignItems: "center",
     backgroundColor: currentColor1,
-    boxShadow: `2px 2px 8px ${currentColor3}`,
+    boxShadow: `2px 2px 0 ${currentColor3}`,
   },
   topProfile: {
     position: "absolute",

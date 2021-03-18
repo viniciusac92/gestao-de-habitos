@@ -11,7 +11,7 @@ export const CardRegister = {
   justifyContent: "center",
   alignItems: "center",
   width: "300px",
-  height: "460px",
+  height: "560px",
   backgroundColor: currentColor1,
   boxShadow: `2px 2px 8px ${currentColor3}`,
 };

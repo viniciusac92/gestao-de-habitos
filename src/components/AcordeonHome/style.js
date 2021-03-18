@@ -2,6 +2,7 @@ import {
   currentColor1,
   currentColor2,
   currentColor3,
+  neutralColor,
 } from "../../styles/globalStyles";
 
 export const appBarStyle = {
@@ -10,7 +11,7 @@ export const appBarStyle = {
 };
 
 export const titleStyle = {
-  color: currentColor3,
+  color: neutralColor,
 };
 
 export const modalStyle = {
@@ -27,6 +28,6 @@ export const buttonStyle = {
   width: "150px",
   margin: "10px",
   backgroundColor: currentColor1,
-  color: currentColor3,
+  color: neutralColor,
   boxShadow: `2px 2px 4px 1px ${currentColor3}`,
 };

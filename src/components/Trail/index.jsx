@@ -5,7 +5,6 @@ import { useHabits } from "../../Providers/Habits";
 const data = (averageHabits) => {
   console.log(averageHabits());
   return {
-    //informações passadas para o componente
     options: {
       legend: {
         display: false,
@@ -40,25 +39,24 @@ const data = (averageHabits) => {
       "atividades feitas no dia 5:",
       "atividades feitas no dia 6:",
       "atividades feitas no dia 7:",
-    ], //Informações em cada node, pode ser string ou number
+    ],
 
     datasets: [
       {
-        fill: false, //preenchimento do espaço entre a base da tela e a linha
-        lineTension: 0.1, //o quão suave são as curvas da linha
-        borderColor: currentColor3,
-        borderDash: [15], //tamanho do traçado da linha
+        fill: false,
+        lineTension: 0.1,
+        borderColor: currentColor1,
+        borderDash: [5],
         pointBorderColor: currentColor1,
-        pointBackgroundColor: currentColor1,
-        pointBorderWidth: 15, //tamanho da borda dos nodes
-        pointHoverRadius: 30, //tamanho dos nodes quando passa o mouse
+        pointBackgroundColor: currentColor3,
+        pointBorderWidth: 15,
+        pointHoverRadius: 30,
         pointHoverBackgroundColor: currentColor1,
         pointHoverBorderColor: currentColor3,
-        pointHoverBorderWidth: 5, //grossura da borda dos nodes quando passa o mouse
-        pointRadius: 15, //tamanho dos nodes
-        pointHitRadius: 15, //tamanho dos nodes quando passa o mouse
+        pointHoverBorderWidth: 5,
+        pointRadius: 15,
+        pointHitRadius: 15,
         data: [
-          //altura dos nodes no grafico
           averageHabits()[0],
           averageHabits()[1],
           averageHabits()[2],

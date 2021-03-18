@@ -48,14 +48,14 @@ const MenuBar = () => {
           aria-haspopup="true"
           onClick={handleMenu}
         >
-          <MenuIcon />
+          <MenuIcon style={{ fontSize: "3rem" }} />
         </IconButton>
         <Menu
           id="menu-appbar"
           anchorEl={anchorEl}
           anchorOrigin={{
             vertical: "top",
-            horizontal: "right",
+            horizontal: "left",
           }}
           keepMounted
           transformOrigin={{
@@ -65,10 +65,46 @@ const MenuBar = () => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={() => sendTo("/home")}>Home</MenuItem>
-          <MenuItem onClick={() => sendTo("/profile")}>Perfil</MenuItem>
-          <MenuItem onClick={() => sendTo("/trail")}>Trilha</MenuItem>
-          <MenuItem onClick={handleCloseApplication}>Sair</MenuItem>
+          <MenuItem
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "300px",
+            }}
+            onClick={() => sendTo("/home")}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "300px",
+            }}
+            onClick={() => sendTo("/profile")}
+          >
+            Perfil
+          </MenuItem>
+          <MenuItem
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "300px",
+            }}
+            onClick={() => sendTo("/trail")}
+          >
+            Trilha
+          </MenuItem>
+          <MenuItem
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "300px",
+            }}
+            onClick={handleCloseApplication}
+          >
+            Sair
+          </MenuItem>
         </Menu>
       </ToolbarBox>
     </AppBar>

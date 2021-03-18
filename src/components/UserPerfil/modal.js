@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
-import Slide from '@material-ui/core/Slide';
-import { CgDarkMode } from "react-icons/cg"
-import { useProviderUser } from '../../Providers/User';
-import { PerfilButtonStyle } from './styles'
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  IconButton,
+  Slide,
+  Typography,
+  Button,
+  Toolbar,
+  Divider,
+  Input,
+  Dialog,
+  ListItem,
+  AppBar,
+  List,
+} from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
+import CloseIcon from "@material-ui/icons/Close";
+import { useProviderUser } from "../../Providers/User";
+import SendIcon from "@material-ui/icons/Send";
+import {
+  formWrapperStyle,
+  PerfilButtonStyle,
+  buttonStyle,
+  modalWarpStyle,
+  appBar,
+} from "./styles";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    position: 'relative',
+    position: "relative",
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -32,7 +41,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export const FullScreenDialogModal = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [showEditUserName, setShowEditUserName] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -42,67 +52,78 @@ export const FullScreenDialogModal = () => {
     setOpen(false);
   };
 
-  const { userName, handleChangeUserName } = useProviderUser()
-  const [inputText, setInputText] = useState('')
+  const { userName, handleChangeUserName } = useProviderUser();
+  const [inputText, setInputText] = useState("");
 
   console.log(userName);
 
   const userEdit = () => {
+    console.log(inputText);
 
-    console.log(inputText)
+    handleChangeUserName(inputText);
 
-    handleChangeUserName(inputText)
-
-    alert("Usuário Alterado")
-
-  }
+    alert("Usuário Alterado");
+  };
 
   return (
     <div>
-      <Button onClick={handleClickOpen} variant="contained" style={PerfilButtonStyle}>
-          EDITAR PERFIL
-        </Button>
-      <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar}>
+      <Button
+        onClick={handleClickOpen}
+        variant="contained"
+        style={PerfilButtonStyle}
+      >
+        EDITAR PERFIL
+      </Button>
+      <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+      >
+        <AppBar style={appBar}>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
               Editar Perfil
             </Typography>
-
-            <Button autoFocus color="inherit" onClick={handleClose}>
-
-              <CgDarkMode />
-
-            </Button>
-            
           </Toolbar>
-
         </AppBar>
 
-        <List>
-
-          <ListItem>
-
-            <input onChange={(e) => { setInputText(e.target.value) }} /> 
-      
-             <button onClick={userEdit}>Editar</button>
-           
-          </ListItem>
-
+        <List style={modalWarpStyle}>
+          <div>
+            <Button
+              variant="contained"
+              style={buttonStyle}
+              onClick={() => {
+                setShowEditUserName(!showEditUserName);
+              }}
+            >
+              Editar Nome De Usuário <EditIcon style={{ marginLeft: "15px" }} />
+            </Button>
+          </div>
+          {showEditUserName && (
+            <ListItem style={formWrapperStyle}>
+              <Input
+                onChange={(e) => {
+                  setInputText(e.target.value);
+                }}
+              />
+              <Button onClick={userEdit}>
+                <SendIcon />
+              </Button>
+            </ListItem>
+          )}
           <Divider />
-
-          <ListItem >
-
-          </ListItem>
-
+          <ListItem></ListItem>
         </List>
-
       </Dialog>
-
     </div>
-
   );
-}
+};

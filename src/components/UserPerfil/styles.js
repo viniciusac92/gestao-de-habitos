@@ -11,14 +11,20 @@ export const modalWarpStyle = {
   backgroundColor: currentColor2,
   color: currentColor1,
   display: "flex",
+  alignItems: "center",
   flexDirection: "column",
   height: "5000px",
+};
+
+export const formWrapperStyle = {
+  display: "flex",
+  justifyContent: "center",
 };
 
 export const buttonStyle = {
   backgroundColor: currentColor1,
   color: neutralColor,
-  boxShadow: `2px 2px 8px ${currentColor3}`,
+  boxShadow: `2px 2px 0 ${currentColor3}`,
   marginTop: "30px",
 };
 
@@ -26,7 +32,7 @@ export const appBar = {
   backgroundColor: currentColor1,
   color: neutralColor,
   position: "relative",
-  boxShadow: `2px 2px 8px ${currentColor3}`,
+  boxShadow: `2px 2px 0 ${currentColor3}`,
 };
 
 export const PerfilButtonStyle = {
@@ -34,8 +40,9 @@ export const PerfilButtonStyle = {
   color: neutralColor,
   width: "300px",
   height: "65px",
-  margin: "25px",
-  boxShadow: `2px 2px 8px ${currentColor3}`,
+  marginTop: "15px",
+  marginBottom: "15px",
+  boxShadow: `2px 2px 0 ${currentColor3}`,
 };
 
 export const CardUser = {
@@ -47,7 +54,7 @@ export const CardUser = {
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: currentColor1,
-    boxShadow: `2px 2px 8px ${currentColor3}`,
+    boxShadow: `2px 2px 0 ${currentColor3}`,
   },
   topProfile: {
     position: "absolute",
@@ -95,23 +102,22 @@ export const CardMediaUser = styled(CardMedia)`
 export const DivPerfil = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  background-color: ${currentColor2};
 
   @media (max-width: 600px) {
+    padding-top: 40vh;
     flex-direction: column;
   }
 `;
 
 export const DivItems = styled.div`
-  width: 60%;
-  height: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   @media (max-width: 600px) {
     width: 90%;
   }

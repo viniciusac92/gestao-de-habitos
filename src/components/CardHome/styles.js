@@ -9,6 +9,7 @@ export const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
     justifyContent: "center",
     [breakpoints.down("sm")]: {
+      marginTop: "75%",
       flexDirection: "column",
       alignItems: "center",
       margin: 0,
@@ -19,7 +20,7 @@ export const useGridStyles = makeStyles(({ breakpoints }) => ({
 }));
 
 export const useStyles = makeStyles(({ palette, breakpoints }) => ({
-  color: ({ color }: { color: string }) => ({
+  color: ({ color }) => ({
     "&:before": {
       backgroundColor: currentColor1,
     },
@@ -44,7 +45,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
       },
       "& $logo": {
         transform: "scale(1.1)",
-        boxShadow: `4px 4px 10px 0 ${currentColor3}`,
+        boxShadow: `4px 4px 0 0 ${currentColor3}`,
       },
     },
   },
@@ -52,11 +53,11 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
     borderRadius: "1rem",
     width: "99.9%",
   },
-  content: ({ color }: { color: string }) => ({
+  content: ({ color }) => ({
     position: "relative",
     zIndex: 1,
     borderRadius: "1rem",
-    boxShadow: `4px 4px 8px 0 ${currentColor3}`,
+    boxShadow: `4px 4px 0 0 ${currentColor3}`,
     "&:before": {
       content: '""',
       display: "block",
@@ -68,7 +69,7 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
       height: "100%",
       clipPath:
         "polygon(0% 100%, 0% 35%, 0.3% 33%, 1% 31%, 1.5% 30%, 2% 29%, 2.5% 28.4%, 3% 27.9%, 3.3% 27.6%, 5% 27%,95% 0%,100% 0%, 100% 100%)",
-      borderRadius: "1rem",
+      borderRadius: "3px",
       background: `linear-gradient(to top, ${currentColor1}, ${currentColor2})`,
     },
     [breakpoints.down("sm")]: {
@@ -77,22 +78,20 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
     },
   }),
   title: {
-    fontFamily: "Fjalla One",
     fontSize: "1.25rem",
     color: "#fff",
     margin: 0,
     [breakpoints.down("sm")]: {
       marginTop: "15%",
-      marginLeft: "200%",
       fontSize: "0.84rem",
-      color: "black",
+      color: "#fff",
     },
   },
   logo: {
     transition: "0.3s",
     width: 100,
     height: 100,
-    boxShadow: `1px 1px 4px 0 ${currentColor3}`,
+    boxShadow: `1px 1px 0 0 ${currentColor3}`,
     borderRadius: "1rem",
     [breakpoints.down("sm")]: {
       width: 50,
@@ -114,7 +113,6 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
   },
 
   form: {
-    width: "400px",
     [breakpoints.down("sm")]: {
       width: "300px",
       margin: 0,
@@ -123,8 +121,9 @@ export const useStyles = makeStyles(({ palette, breakpoints }) => ({
 }));
 
 export const cardsWrapperStyle = {
-  height: "100vh",
+  overflow: "hidden",
   width: "100vw",
+  backgroundColor: currentColor2,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

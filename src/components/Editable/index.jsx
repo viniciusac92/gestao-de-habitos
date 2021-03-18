@@ -10,7 +10,7 @@ import MenuBar from "../../components/MenuBar";
 import GoalsModal from "./goalsModal";
 
 const Editable = () => {
-  const { activities, goalsGroup } = usePersonal() || [];
+  const { activities } = usePersonal() || [];
   const { group } = useProviderUser();
   const { activitiesGroup, goals, handleActivieDelete, handleGoalDelete } =
     useListActivitiesGoals() || [];
@@ -24,20 +24,46 @@ const Editable = () => {
 
       {group !== null && (
         <div style={personalWrapperStyle}>
-          <DivGoalActivities>
+          <DivGoalActivities
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <h3>Metas do grupo</h3>
 
-            <List style={{ margin: "3%" }}>
-              <h5>Metas</h5>
+            <List
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <h5 style={{ width: "50%" }}>Metas</h5>
 
               {goals &&
                 goals.map((item, i) => (
-                  <ListItem key={i}>
+                  <ListItem
+                    key={i}
+                    style={{
+                      width: "320px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
                     {item.title}
-                    <IconButton onClick={() => handleGoalDelete(item.id)}>
-                      <DeleteForeverIcon />
-                    </IconButton>
-                    <FormDialog edit={"meta"} id={item.id} />
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                      }}
+                    >
+                      <IconButton onClick={() => handleGoalDelete(item.id)}>
+                        <DeleteForeverIcon style={{ color: "#AA0000" }} />
+                      </IconButton>
+                      <FormDialog edit={"meta"} id={item.id} />
+                    </div>
                   </ListItem>
                 ))}
             </List>
@@ -56,12 +82,26 @@ const Editable = () => {
               <List>
                 {activitiesGroup &&
                   activitiesGroup.map((item, i) => (
-                    <ListItem key={i}>
+                    <ListItem
+                      key={i}
+                      style={{
+                        justifyContent: "space-between",
+                      }}
+                    >
                       {item.title}
-                      <IconButton onClick={() => handleActivieDelete(item.id)}>
-                        <DeleteForeverIcon />
-                      </IconButton>
-                      <FormDialog edit={"activitie"} id={item.id} />
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                        }}
+                      >
+                        <IconButton
+                          onClick={() => handleActivieDelete(item.id)}
+                        >
+                          <DeleteForeverIcon style={{ color: "#AA0000" }} />
+                        </IconButton>
+                        <FormDialog edit={"activitie"} id={item.id} />
+                      </div>
                     </ListItem>
                   ))}
               </List>

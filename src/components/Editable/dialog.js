@@ -9,6 +9,7 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { useListActivitiesGoals } from "../../Providers/ListActivitiesGoals";
 import { useProviderUser } from "../../Providers/User";
 import EditIcon from "@material-ui/icons/Edit";
+import { currentColor3 } from "../../styles/globalStyles";
 
 export default function FormDialog({ present, edit, id }) {
   const [open, setOpen] = React.useState(false);
@@ -55,14 +56,19 @@ export default function FormDialog({ present, edit, id }) {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       {edit === "meta" || edit === "activitie" ? (
         <IconButton
           variant="outlined"
           color="primary"
           onClick={handleClickOpen}
         >
-          <EditIcon />
+          <EditIcon style={{ color: currentColor3 }} />
         </IconButton>
       ) : (
         <IconButton
@@ -70,7 +76,7 @@ export default function FormDialog({ present, edit, id }) {
           color="primary"
           onClick={handleClickOpen}
         >
-          <AddCircleOutlineIcon />
+          <AddCircleOutlineIcon style={{ color: currentColor3 }} />
         </IconButton>
       )}
 
