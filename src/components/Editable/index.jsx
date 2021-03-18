@@ -22,7 +22,7 @@ const Editable = () => {
 
       <PersonalDialog />
 
-      {group !== null  && group !== 26  && (
+      {group !== null && group !== 26 && (
         <div style={personalWrapperStyle}>
           <DivGoalActivities>
             <h3>Metas do grupo</h3>
