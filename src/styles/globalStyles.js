@@ -5,7 +5,7 @@ if (!localStorage.getItem("@habitos/colorSchemes")) {
     "@habitos/colorSchemes",
     JSON.stringify({
       currentColor1: "#0F0F0F",
-      currentColor2: "#282C34",
+      currentColor2: "#4C4E68",
       currentColor3: "#7A1FA5",
     })
   );
@@ -22,20 +22,19 @@ export const changeScheme = () => {
     localStorage.setItem(
       "@habitos/colorSchemes",
       JSON.stringify({
-        currentColor1: "#7A9E9F",
+        currentColor1: "#4F6367",
         currentColor2: "#EEF5DB",
-        currentColor3: "#4F6367",
+        currentColor3: "#7A9E9F",
       })
     );
   };
 
   const changeToDark = () => {
-    console.log("entroooou");
     localStorage.setItem(
       "@habitos/colorSchemes",
       JSON.stringify({
         currentColor1: "#0F0F0F",
-        currentColor2: "#282C34",
+        currentColor2: "#4C4E68",
         currentColor3: "#7A1FA5",
       })
     );

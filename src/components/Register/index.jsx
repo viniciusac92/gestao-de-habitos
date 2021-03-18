@@ -14,6 +14,7 @@ import {
 import { Card } from "@material-ui/core";
 import D2DLogo from "../../styles/D2DLogo";
 import axios from "axios";
+import { neutralColor } from "../../styles/globalStyles";
 
 const Register = () => {
   const history = useHistory();
@@ -96,7 +97,15 @@ const Register = () => {
           style={buttonStyle}
           onClick={handleSubmit(handleForm)}
         >
-          Enviar
+          Cadastrar
+        </Button>
+      </div>
+      <div>
+        <Button
+          onClick={() => history.push("/")}
+          style={{ color: neutralColor }}
+        >
+          faça login
         </Button>
       </div>
       {errMsg && <TagP>Usuário já cadastrado</TagP>}

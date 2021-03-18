@@ -1,7 +1,7 @@
 import { AppBar, MenuItem, Menu } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/IconButton";
+import { IconButton, Button } from "@material-ui/core";
 import { useState } from "react";
 import { ToolbarBox } from "./styles";
 import { D2DLogo } from "../../styles/D2DLogo";
@@ -27,12 +27,18 @@ const MenuBar = () => {
     setAnchorEl(null);
   };
 
+  const handleLogoClick = () => {
+    history.push("/home");
+  };
+
   const open = Boolean(anchorEl);
 
   return (
     <AppBar>
       <ToolbarBox>
-        <D2DLogo />
+        <Button onClick={handleLogoClick}>
+          <D2DLogo />
+        </Button>
 
         <IconButton
           edge="start"
@@ -61,7 +67,7 @@ const MenuBar = () => {
         >
           <MenuItem onClick={() => sendTo("/home")}>Home</MenuItem>
           <MenuItem onClick={() => sendTo("/profile")}>Perfil</MenuItem>
-          <MenuItem onClick={() => sendTo("/trail")}>Trilha</MenuItem>                    
+          <MenuItem onClick={() => sendTo("/trail")}>Trilha</MenuItem>
           <MenuItem onClick={handleCloseApplication}>Sair</MenuItem>
         </Menu>
       </ToolbarBox>

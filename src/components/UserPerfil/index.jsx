@@ -6,11 +6,13 @@ import FullScreenDialog from './dialog'
 import FullScreenDialogGroup from './dialogGroup'
 import FullScreenUsers from "./dialogMyGroupList/dialog";
 import ConfigDialog from "./dialogConfig";
+import TimelineIcon from "@material-ui/icons/Timeline";
+import { useHistory } from "react-router-dom";
 import {useProviderUser} from "../../Providers/User"
 import {FullScreenDialogModal} from "./modal"
-
-
+  
 const UserPerfil = () => {
+  const history = useHistory();
 
   const {userName, handleChangeUserName} = useProviderUser()
 
@@ -29,9 +31,16 @@ const UserPerfil = () => {
         <div style={CardUser.topProfile}>
 
           <Avatar variant="rounded" style={CardUser.avatar} />
-
-          <h3 style={CardUser.userName}>{userName}</h3>
-          
+          <h3 style={CardUser.userName}>
+            {userName}
+            <Button
+              onClick={() => {
+                history.push("/trail");
+              }}
+            >
+              <TimelineIcon style={{ color: "#CCC" }} />
+            </Button>
+          </h3>
         </div>
       </Card>
 

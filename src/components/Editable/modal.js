@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -10,23 +9,18 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { usePersonalGroups } from "../../Providers/ListGroups";
 import { useListActivitiesGoals } from "../../Providers/ListActivitiesGoals";
-
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-}));
+import { appBar, buttonStyle, modalWarpStyle } from "../UserPerfil/styles";
+import {
+  simpleButtonStyle,
+  itemWrapperStyle,
+  groupsWrapperStyle,
+} from "./styles";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function PersonalDialog() {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const { groups, handleAdd, handleSub, handleSubscribe, counter } =
     usePersonalGroups() || "";
@@ -49,10 +43,9 @@ export default function PersonalDialog() {
   };
 
   return (
-    <div>
-      <p>Subscribe to/or change to a group</p>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        subscribe
+    <div style={groupsWrapperStyle}>
+      <Button variant="contained" style={buttonStyle} onClick={handleClickOpen}>
+        VER TODOS OS GRUPOS
       </Button>
 
       <Dialog
@@ -61,40 +54,54 @@ export default function PersonalDialog() {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              All groups that you can subscribe
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "space-around",
-          }}
-        >
-          {groups !== "" &&
-            groups.map((item, i) => (
-              <div key={i}>
-                {item.name}
-                <button onClick={() => handleCloseSubscribe(item.id)}>
-                  Inscreva-se
-                </button>
-              </div>
-            ))}
+        <div style={modalWarpStyle}>
+          <AppBar style={appBar}>
+            <Toolbar>
+              <IconButton
+                edge="start"
+                color="inherit"
+                onClick={handleClose}
+                aria-label="close"
+              >
+                <CloseIcon />
+              </IconButton>
+              <Typography variant="h6">Todos os grupos disponíveis</Typography>
+            </Toolbar>
+          </AppBar>
+          <div style={groupsWrapperStyle}>
+            {groups !== "" &&
+              groups.map((item, i) => (
+                <div style={itemWrapperStyle} key={i}>
+                  <h4>{item.name}</h4>
+                  <Button
+                    style={simpleButtonStyle}
+                    variant="contained"
+                    onClick={() => handleCloseSubscribe(item.id)}
+                  >
+                    Inscreva-se
+                  </Button>
+                </div>
+              ))}
+          </div>
         </div>
-        {counter < 9 && <button onClick={handleAdd}>Next</button>}
-        {counter > 1 && <button onClick={handleSub}>Previous</button>}
+        {counter < 9 && (
+          <Button
+            style={simpleButtonStyle}
+            variant="contained"
+            onClick={handleAdd}
+          >
+            PROXIMO
+          </Button>
+        )}
+        {counter > 1 && (
+          <Button
+            style={simpleButtonStyle}
+            variant="contained"
+            onClick={handleSub}
+          >
+            ANTERIOR
+          </Button>
+        )}
       </Dialog>
     </div>
   );
