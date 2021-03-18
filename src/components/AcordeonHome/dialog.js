@@ -28,7 +28,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FullScreenDialog({ title }) {
   const classes = useStyles();
 
-  const {handleSubscribe} = usePersonalGroups()
+  const { handleSubscribe } = usePersonalGroups();
 
   const { handleActivities, handleGoals } = useGroup();
 
@@ -41,7 +41,7 @@ export default function FullScreenDialog({ title }) {
   });
 
   const handleClickOpen = async () => {
-    await handleSubscribe(26)
+    await handleSubscribe(26);
     setOpen(true);
   };
 
@@ -99,7 +99,16 @@ export default function FullScreenDialog({ title }) {
           </div>
         ) : (
           <div style={modalStyle}>
-            <h1>Escolha um temporizador:</h1>
+            <div
+              style={{
+                width: "300px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <h3>Escolha um temporizador:</h3>
+            </div>
             <Button
               variant="contained"
               style={buttonStyle}

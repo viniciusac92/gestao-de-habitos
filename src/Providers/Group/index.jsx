@@ -2,6 +2,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services";
 
 const GroupContext = createContext();
+export const GroupProvider = ({ children }) => {
+  const [group, setGroup] = useState(() => {
+    api
+      .get("/groups/26/")
+      .then((response) => setGroup(response.data))
+      .catch((err) => console.log(err));
+  });
 
 export const GroupProvider = ({ children }) => {
   const [group, setGroup] = useState(() => {
@@ -24,7 +31,6 @@ export const GroupProvider = ({ children }) => {
           setActivities(response.data.activities);
         goals.length < response.data.goals.length &&
           setGoals(response.data.goals);
-        // handleAverage(response.data.activities)
       })
       .catch((err) => console.log(err));
   }, [activities, goals]);

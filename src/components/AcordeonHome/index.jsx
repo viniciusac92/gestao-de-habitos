@@ -19,7 +19,8 @@ const ActionsInAccordionSummary = ({ code }) => {
       {code !== null ? (
         goals.map((goal) => (
           <Accordion>
-            <AccordionSummary              
+            <AccordionSummary
+              style={{ width: "100%" }}
               aria-label="Expand"
               aria-controls="additional-actions1-content"
             >
