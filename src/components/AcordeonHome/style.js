@@ -2,7 +2,7 @@ import {
   currentColor1,
   currentColor2,
   currentColor3,
-} from "../../../styles/globalStyles";
+} from "../../styles/globalStyles";
 
 export const appBarStyle = {
   position: "relative",

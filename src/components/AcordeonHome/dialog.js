@@ -8,10 +8,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { useHabits } from "../../../Providers/Habits";
-import { useGroup } from "../../../Providers/Group";
-import CircularTimer from "../../CircularTimer/index";
+import { useHabits } from "../../Providers/Habits";
+import { useGroup } from "../../Providers/Group";
+import CircularTimer from "../CircularTimer/index";
 import { appBarStyle, titleStyle, modalStyle, buttonStyle } from "./style";
+import { usePersonalGroups } from "../../Providers/ListGroups";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,9 +28,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FullScreenDialog({ title }) {
   const classes = useStyles();
 
+  const {handleSubscribe} = usePersonalGroups()
+
   const { handleActivities, handleGoals } = useGroup();
 
-  const { handleHabit } = useHabits();
+  const { handleHabit, averageHabits } = useHabits();
 
   const [open, setOpen] = React.useState(false);
   const [timer, setTimer] = React.useState({
@@ -37,7 +40,8 @@ export default function FullScreenDialog({ title }) {
     timeChosen: 10,
   });
 
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
+    await handleSubscribe(26)
     setOpen(true);
   };
 
@@ -51,8 +55,9 @@ export default function FullScreenDialog({ title }) {
 
   const createActions = () => {
     handleActivities(title);
-    handleHabit(title);
+    handleHabit(title, new Date());
     handleGoals(title);
+    handleClose();
   };
 
   return (

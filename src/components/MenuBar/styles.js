@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, MenuItem, Menu } from "@material-ui/core";
+import { Toolbar } from "@material-ui/core";
 import { currentColor1 } from "../../styles/globalStyles";
 
 import styled from "styled-components";

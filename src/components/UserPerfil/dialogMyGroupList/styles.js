@@ -12,7 +12,7 @@ import {
 	currentColor3,
 	currentColor1,
 	neutralColor,
-} from "../../styles/globalStyles";
+} from "../../../styles/globalStyles";
 
 export const LinearProgressStyled = styled(LinearProgress)`
 	height: 15px !important;
@@ -23,7 +23,7 @@ export const DividerStyled = styled(Divider)`
 `;
 
 export const ListItemTextStyled = styled(ListItemText)`
-	color: white;
+	color: black;
 `;
 
 export const ListItemStyled = styled(ListItem)`
@@ -97,7 +97,7 @@ export const CardUser = {
 
 export const TypographyStyled = styled(Typography)`
 	width: 100% !important;
-	color: white;
+	color: black;
 `;
 
 export const BoxStyled = styled(Box)`

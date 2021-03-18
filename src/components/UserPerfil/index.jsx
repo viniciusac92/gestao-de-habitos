@@ -4,8 +4,11 @@ import { Card } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import FullScreenDialog from './dialog'
 import FullScreenDialogGroup from './dialogGroup'
+import FullScreenUsers from "./dialogMyGroupList/dialog";
+import ConfigDialog from "./dialogConfig";
 import {useProviderUser} from "../../Providers/User"
 import {FullScreenDialogModal} from "./modal"
+
 
 const UserPerfil = () => {
 
@@ -36,13 +39,8 @@ const UserPerfil = () => {
         <FullScreenDialogModal/>
         <FullScreenDialog />
         <FullScreenDialogGroup />
-        
-        <Button variant="contained" style={PerfilButtonStyle}>
-          LISTAGEM DE USUARIOS DO SEU GRUPO
-        </Button>
-        <Button variant="contained" style={PerfilButtonStyle}>
-          CONFIGURAÇÕES
-        </Button>
+        <FullScreenUsers />
+        <ConfigDialog />
       </DivItems>
     </DivPerfil>
   );

@@ -1,7 +1,7 @@
 import { ErrorMsgDiv } from "./styles";
 
 const NotFound = () => {
-  return <ErrorMsgDiv>Error 404</ErrorMsgDiv>;
+  return <ErrorMsgDiv />
 };
 
 export default NotFound;

@@ -4,126 +4,67 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import {IconButton} from "@material-ui/core";
-import {useGroup} from "../../Providers/Group";
+import { IconButton } from "@material-ui/core";
+import FullScreenDialog from "./dialog";
+import { useGroup } from "../../Providers/Group";
+import DirectionsIcon from "@material-ui/icons/Directions";
+import { useHistory } from "react-router-dom";
 
-const ActionsInAccordionSummary = ({code}) => {
-	const {group} = useGroup();
+const ActionsInAccordionSummary = ({ code }) => {
+  const { goals } = useGroup();
+  const history = useHistory();
 
-	console.log(group);
-
-	return (
-		<div>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-label="Expand"
-					aria-controls="additional-actions1-content">
-					<FormControlLabel
-						aria-label="Acknowledge"
-						onClick={(event) => event.stopPropagation()}
-						onFocus={(event) => event.stopPropagation()}
-						control={
-							<>
-								{code !== null ? (
-									<>
-										<IconButton>
-											<AddCircleOutlineIcon />
-										</IconButton>
-									</>
-								) : (
-									<>
-										<IconButton>
-											<AddCircleOutlineIcon />
-										</IconButton>
-									</>
-								)}
-							</>
-						}
-						label={
-							code !== null
-								? "Use tecnologias diferentes num mesmo código"
-								: "Aprenda algo novo"
-						}
-					/>
-				</AccordionSummary>
-				<Typography color="textSecondary">
-					Dicas: tente sempre usar boas práticas para que a vida útil de seu
-					código dure mais
-				</Typography>
-			</Accordion>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-label="Expand"
-					aria-controls="additional-actions2-content">
-					<FormControlLabel
-						aria-label="Acknowledge"
-						onClick={(event) => event.stopPropagation()}
-						onFocus={(event) => event.stopPropagation()}
-						control={
-							<>
-								{code !== null ? (
-									<>
-										<IconButton>
-											<AddCircleOutlineIcon />
-										</IconButton>
-									</>
-								) : (
-									<>
-										<IconButton>
-											<AddCircleOutlineIcon />
-										</IconButton>
-									</>
-								)}
-							</>
-						}
-						label={code !== null ? "Refatorar código" : "leia 60 páginas "}
-					/>
-				</AccordionSummary>
-				<AccordionDetails>
-					<Typography color="textSecondary">
-						Dicas: tente sempre usar boas práticas para que a vida útil de seu
-						código dure mais
-					</Typography>
-				</AccordionDetails>
-			</Accordion>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-label="Expand"
-					aria-controls="additional-actions3-content">
-					<FormControlLabel
-						aria-label="Acknowledge"
-						onClick={(event) => event.stopPropagation()}
-						onFocus={(event) => event.stopPropagation()}
-						control={
-							<>
-								{code !== null ? (
-									<>
-										<IconButton>
-											<AddCircleOutlineIcon />
-										</IconButton>
-									</>
-								) : (
-									<>
-										<IconButton>
-											<AddCircleOutlineIcon />
-										</IconButton>
-									</>
-								)}
-							</>
-						}
-						label={code !== null ? "Codar 30min hoje" : "faça algo"}
-					/>
-				</AccordionSummary>
-				<AccordionDetails>
-					<Typography color="textSecondary">Dica: tente.......</Typography>
-				</AccordionDetails>
-			</Accordion>
-		</div>
-	);
+  return (
+    <div>
+      {code !== null ? (
+        goals.map((goal) => (
+          <Accordion>
+            <AccordionSummary              
+              aria-label="Expand"
+              aria-controls="additional-actions1-content"
+            >
+              <FormControlLabel
+                aria-label="Acknowledge"
+                onClick={(event) => event.stopPropagation()}
+                onFocus={(event) => event.stopPropagation()}
+                control={
+                  <IconButton>
+                    <FullScreenDialog title={goal.title} />
+                  </IconButton>
+                }
+                label={goal.title}
+              />
+            </AccordionSummary>
+          </Accordion>
+        ))
+      ) : (
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-label="Expand"
+            aria-controls="additional-actions1-content"
+          >
+            <FormControlLabel
+              aria-label="Acknowledge"
+              onClick={(event) => event.stopPropagation()}
+              onFocus={(event) => event.stopPropagation()}
+              control={
+                <IconButton onClick={() => history.push("/personal")}>
+                  <DirectionsIcon />
+                </IconButton>
+              }
+              label="Vá para a página de comunidades"
+            />
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography color="textSecondary">
+              Metas e atividades editáveis
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      )}
+    </div>
+  );
 };
 
 export default ActionsInAccordionSummary;

@@ -23,8 +23,8 @@ export const GroupProvider = ({children}) => {
         goals.length < response.data.goals.length && setGoals(response.data.goals)
         // handleAverage(response.data.activities)
       })
-      .catch((err) => console.log(err))
-  },[activities,goals]) 
+      .catch((err) => console.log(err));
+  }, [activities, goals]);
 
 	useEffect(() => {
 		api
@@ -74,7 +74,6 @@ export const GroupProvider = ({children}) => {
 	};
 
 	const handleAverage = (acti) => {
-		console.log(acti);
 		const averageObj = {};
 		acti.forEach((e) => {
 			if (averageObj[e.realization_time.substring(0, 10)] === undefined) {
