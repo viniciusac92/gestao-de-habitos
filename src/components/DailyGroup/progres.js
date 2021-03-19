@@ -14,13 +14,13 @@ const BorderLinearProgress = withStyles((theme) => ({
     borderRadius: 5,
     width: 250,
     marginRight: "20px",
-    boxShadow: `2px 2px 4px ${currentColor3}`,
+    boxShadow: `2px 2px 0 ${currentColor3}`,
   },
   colorPrimary: {
     backgroundColor: neutralColor,
   },
   bar: {
-    boxShadow: `2px 2px 12px ${currentColor3}`,
+    boxShadow: `2px 2px 0 ${currentColor3}`,
     borderRadius: 5,
     backgroundColor: currentColor1,
   },
@@ -38,7 +38,13 @@ export default function CustomizedProgressBars({ xp, porcent }) {
   return (
     <div className={classes.root}>
       <br />
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "300px",
+        }}
+      >
         {xp <= 100 ? (
           <BorderLinearProgress variant="determinate" value={xp} />
         ) : (

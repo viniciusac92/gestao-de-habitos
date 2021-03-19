@@ -20,5 +20,5 @@ export const circleStyle = {
   color: currentColor1,
   borderRadius: "50%",
   backgroundColor: currentColor2,
-  boxShadow: `0 4px 8px 2px ${currentColor3}`,
+  boxShadow: `0 4px 0 ${currentColor3}`,
 };

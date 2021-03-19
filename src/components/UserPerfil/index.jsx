@@ -28,16 +28,14 @@ const UserPerfil = () => {
         </div>
         <div style={CardUser.topProfile}>
           <Avatar variant="rounded" style={CardUser.avatar} />
-          <h3 style={CardUser.userName}>
-            {userName}
-            <Button
-              onClick={() => {
-                history.push("/trail");
-              }}
-            >
-              <TimelineIcon style={{ color: "#CCC" }} />
-            </Button>
-          </h3>
+          <h3 style={CardUser.userName}>{userName}</h3>
+          <Button
+            onClick={() => {
+              history.push("/trail");
+            }}
+          >
+            <TimelineIcon style={{ color: "#CCC" }} />
+          </Button>
         </div>
       </Card>
 

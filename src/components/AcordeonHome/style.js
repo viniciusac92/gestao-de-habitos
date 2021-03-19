@@ -29,5 +29,5 @@ export const buttonStyle = {
   margin: "10px",
   backgroundColor: currentColor1,
   color: neutralColor,
-  boxShadow: `2px 2px 4px 1px ${currentColor3}`,
+  boxShadow: `2px 2px 0  ${currentColor3}`,
 };

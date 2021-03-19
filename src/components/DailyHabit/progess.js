@@ -13,14 +13,14 @@ const BorderLinearProgress = withStyles((theme) => ({
     borderRadius: 5,
     width: 250,
     marginRight: "20px",
-    boxShadow: `2px 2px 4px ${currentColor3}`,
+    boxShadow: `2px 2px 0 ${currentColor3}`,
     marginBottom: "15px",
   },
   colorPrimary: {
     backgroundColor: neutralColor,
   },
   bar: {
-    boxShadow: `2px 2px 12px ${currentColor3}`,
+    boxShadow: `2px 2px 0 ${currentColor3}`,
     borderRadius: 5,
     backgroundColor: currentColor1,
   },

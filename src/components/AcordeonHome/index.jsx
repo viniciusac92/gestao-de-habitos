@@ -9,6 +9,7 @@ import FullScreenDialog from "./dialog";
 import { useGroup } from "../../Providers/Group";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import { useHistory } from "react-router-dom";
+import { currentColor3 } from "../../styles/globalStyles";
 
 const ActionsInAccordionSummary = ({ code }) => {
   const { goals } = useGroup();
@@ -51,7 +52,7 @@ const ActionsInAccordionSummary = ({ code }) => {
               onFocus={(event) => event.stopPropagation()}
               control={
                 <IconButton onClick={() => history.push("/personal")}>
-                  <DirectionsIcon />
+                  <DirectionsIcon style={{ color: currentColor3 }} />
                 </IconButton>
               }
               label="Vá para a página de comunidades"

@@ -97,7 +97,7 @@ export default function FullScreenDialogUsers() {
                               </TypographyStyled>
                             </Box>
                           </BoxStyled>
-                          <TypographyStyled>{`Text me! ${userProfile.email}`}</TypographyStyled>
+                          <TypographyStyled>{`Me contate! ${userProfile.email}`}</TypographyStyled>
                         </ListItemStyled>
                       </List>
                       <DividerStyled />

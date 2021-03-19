@@ -53,7 +53,7 @@ export default function FullScreenDialog({ title }) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" style={buttonStyle} onClick={handleClickOpen}>
         GO!
       </Button>
       <Dialog
