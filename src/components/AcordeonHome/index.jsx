@@ -29,11 +29,7 @@ const ActionsInAccordionSummary = ({ code }) => {
                 aria-label="Acknowledge"
                 onClick={(event) => event.stopPropagation()}
                 onFocus={(event) => event.stopPropagation()}
-                control={
-                  <IconButton>
-                    <FullScreenDialog title={goal.title} />
-                  </IconButton>
-                }
+                control={<FullScreenDialog title={goal.title} />}
                 label={goal.title}
               />
             </AccordionSummary>
